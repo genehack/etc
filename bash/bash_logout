@@ -1,0 +1,6 @@
+# -*- sh -*-
+# ~/.bash_logout: executed by bash(1) when login shell exits.
+
+# $Id: bash_logout 1256 2007-11-12 16:49:10Z genehack $
+
+clear
