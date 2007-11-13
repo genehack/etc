@@ -1,0 +1,68 @@
+#! /usr/bin/perl
+
+# $Id: get-svn-st 465 2007-02-22 15:13:34Z genehack $
+
+use strict;
+use warnings;
+
+use Cwd;
+use File::Basename;
+use Sys::Hostname;
+
+my $progname = fileparse( $0 );
+
+my $prompting = interactive_p() ? 1 : 0;
+
+my $dir = getcwd;
+
+if ( my $newdir = shift ) {
+  if ( -d $newdir ) {
+    $dir = $newdir;
+    chdir $dir;
+  }
+  elsif ( -e $newdir ) {
+    die "$progname: $newdir: not a dir\n";
+  }
+  else {
+    die "$progname: $newdir: no such dir\n";
+  }
+}
+
+$dir =~ s|/$|| if $dir =~ m|/$|;
+
+my @output;
+
+my @lines = `svn st`;
+foreach ( @lines ) {
+  next if /(^X|status on external|^$)/;
+  push @output , $_;
+}
+
+if ( @output ) {
+  @output = sort @output;
+
+  my @t = localtime();
+  my $date = sprintf "%04d-%02d-%02d %02d:%02d" , 
+    $t[5]+1900 , $t[4]+1 , $t[3] , $t[2] , $t[1];
+      
+  my $hostname = hostname;
+
+  my $header = sprintf "*** SVN status for '%s' on '%s' at %s\n" ,
+    $dir , $hostname , $date;
+
+  system("clear") if $prompting;
+
+  print $header , @output;
+}
+else {
+  if ( $prompting ) {
+    system("clear");
+    print "\n*** All up to date!\n\n" if $prompting;
+  }
+}
+
+
+sub interactive_p {
+  return -t STDIN && -t STDOUT;
+}
+
