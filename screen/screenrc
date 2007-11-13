@@ -1,0 +1,16 @@
+# $Id: screenrc 1424 2007-11-12 20:24:53Z genehack $
+
+startup_message off
+
+screen -t TOP     0 htop
+screen -t MAIL    1 bash
+screen -t amylase 2 /home/genehack/bin/start-amylase
+
+blankerprg watch -n 60 clear && "figlet -c `date \"+%A%n%B %d, %G%n%I:%M%P\"`" && cowsay `fortune`
+idle 3600 blanker
+hardstatus alwayslastline "%{.kY} <%H> %{.bW} %-w%{.rW}%n %t%{-}%+w %=%{.kR} [%l] %{.kw} %D %d %M %Y %c:%s"
+
+
+bindkey -k kb stuff ^H
+
+select 1
