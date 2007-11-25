@@ -1,0 +1,35 @@
+#! /bin/sh
+
+# $Id$
+# $URL$
+
+COLOR_BIN=$HOME/bin/color
+
+if [ -e $COLOR_BIN ]; then
+    echo "it looks like there's already a color binary in place."
+    echo "cowardly refusing to just blow it away."
+    echo "if you want to regenerate the binary, first run:"
+    echo "'rm $COLOR_BIN'"
+    echo
+    echo "thanks!"
+    exit
+fi
+
+if [ -e $HOME/tmp ]; then
+    TMP=$HOME/tmp
+else
+    TMP=/tmp
+fi
+
+tar xzf $HOME/etc/src/color-1.1.tar.gz -C $TMP || ( echo "Error with tar!" ; exit )
+cd $TMP/color-1.1
+make > /dev/null
+if [ -e ./color ]; then
+    cp ./color $COLOR_BIN
+    cd
+    rm -rf $TMP/color-1.1
+    echo "color binary built and placed at $COLOR_BIN"
+else
+    echo "whoops, something went wrong with the build! time to debug!"
+    echo "build tree left at $TMP/color-1.1"
+fi
