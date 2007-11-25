@@ -10,12 +10,15 @@ if [ -f /etc/bashrc ]; then
 fi
 
 ## OS
-if [ `uname` = 'Darwin' ]; then
+OS=`uname`
+if [ $OS = 'Linux' ]; then
+    export OS_TYPE='linux'
+elif [ $OS = 'Darwin' ]; then
     export OS_TYPE='darwin'
-elif [ `uname` = 'FreeBSD' ]; then
+elif [ $OS = 'FreeBSD' ]; then
     export OS_TYPE='freebsd'
 else
-    export OS_TYPE='linux'
+    export OS_TYPE='UNKNOWN'
 fi
 
 ## $HOSTNAME 
@@ -23,10 +26,6 @@ if [ $OS_TYPE = 'darwin' -o $OS_TYPE = 'freebsd' ]; then
     export HOSTNAME=`hostname -s`
     export DOMAIN=`hostname | cut -f2- -d.`
     export FULL_HOSTNAME=`hostname`
-    if [ $FULL_HOSTNAME = 'mactop.local' ]; then
-        export FULL_HOSTNAME='mactop.ncbi.nlm.nih.gov'
-        export DOMAIN='ncbi.nlm.nih.gov'
-    fi
 else
     export HOSTNAME=`hostname`
     export DOMAIN=`hostname -d`
@@ -83,58 +82,9 @@ fi
 
 
 ## PATHS
-# logic:
-# a) there's a list of common places where software may be
-#
-# b) for each, there may be 'bin', 'man', and 'sbin' dirs that need to
-#    be added to various PATH variables
-#
-# c) but if something doesn't exist, we don't want to pollute the
-#    environment with it
-#
-# d) because we're going to be adding things at the front of the
-#    various *PATH directories, the outer loop needs to be in reverse
-#    order
-
-# taken from <http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_11_02.html>
-if [ $OS_TYPE = 'darwin' ]; then
-    EGREP=/usr/bin/egrep
-else
-    EGREP=/bin/egrep
+if [ -e $HOME/bin ]; then
+    export PATH=$HOME/bin:$PATH
 fi
-
-pathmunge () {
-    if [ ! $CPAN2RPM ]; then
-        for DIR in bin sbin ; do
-            if [ -e $1/$DIR ]; then
-                if ! echo $PATH | $EGREP -q "(^|:)$1/$DIR($|:)" ; then
-                    if [ "$2" = "after" ] ; then
-                        PATH=$PATH:$1/$DIR
-                    else
-                        PATH=$1/$DIR:$PATH
-                    fi
-                fi
-            fi
-        done
-        if [ -e $1/man ]; then
-            if ! echo $MANPATH | $EGREP -q "(^|:)$1/man($|:)" ; then
-                if [ "$2" = "after" ]; then
-                    MANPATH=$MANPATH:$1/man
-                else
-                    MANPATH=$1/man:$MANPATH
-                fi
-            fi
-        fi
-    fi
-}
-
-
-LOCATIONS="/usr/local /opt/perl-5.8.8 /opt/local $HOME/local $HOME"
-for LOC in $LOCATIONS ; do
-    pathmunge $LOC
-done
-
-unset pathmunge
 
 ## SET PROMPT
 setprompt() {
