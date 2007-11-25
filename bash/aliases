@@ -2,19 +2,17 @@
 ### genehack bash aliases 
 
 # $Id$
+# $URL$
 
 #  prevent some mistakes
-alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
+alias rm="rm -i"
 
 #  modify ls
 if [ $OS_TYPE = 'linux' ]; then
     eval `dircolors -b`
     alias ls='/bin/ls --color=auto --classify'
-elif [ -e /sw/bin/ls ]; then
-    eval `dircolors -b`
-    alias ls='/sw/bin/ls --color=auto --classify'
 fi
 
 alias grep='grep --color=auto'
@@ -22,6 +20,7 @@ alias grep='grep --color=auto'
 #  ssh shortcuts
 alias gho='ssh genehack.org'
 alias ghc='ssh genehack.com'
+alias ghn='ssh genehack.net'
 
 # development
 alias pe-extern='svn pe svn:externals'
