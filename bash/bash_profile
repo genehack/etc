@@ -1,7 +1,7 @@
 # -*- sh -*-
 ### genehack .bash_profile
 
-# $Id: bash_profile 1257 2007-11-12 16:49:14Z genehack $
+# $Id$
 
 # how bash decides which config files to read, from the INVOCATION
 # section of the bash(1) man page:

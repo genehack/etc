@@ -1,8 +1,8 @@
 # -*- sh -*-
 ### genehack .bashrc
 
-# $Id: bashrc 1258 2007-11-12 16:49:19Z genehack $
-# $URL: svn+ssh://genehack.org/home/genehack/svn/svnhome/bash/bashrc $
+# $Id$
+# $URL$
 
 ## globals
 if [ -f /etc/bashrc ]; then
