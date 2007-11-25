@@ -1,0 +1,28 @@
+#! /bin/bash
+
+# $Id$
+# $URL$
+
+for i in           \
+    Xdefaults      \
+    aliases        \
+    bash_logout    \
+    bash_profile   \
+    bashrc         \
+    cvsrc          \
+    screenrc       \
+    xinitrc        \
+; do
+    ln -sfv ~/etc/$i ~/.$i
+done
+
+echo 
+
+ln -sfv ~/etc/subversion/config  ~/.subversion/config
+ln -sfv ~/etc/subversion/servers ~/.subversion/servers
+ln -sfv ~/etc/vim/vimrc          ~/.vimrc
+
+echo
+
+rm -f ~/.module-starter  && ln -sfv ~/etc/module-starter ~/.module-starter
+rm -f ~/.vim             && ln -sfv ~/etc/vim            ~/.vim
