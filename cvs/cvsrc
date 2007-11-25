@@ -1,4 +1,4 @@
-# $Id: cvsrc 1297 2007-11-12 17:53:12Z genehack $
+# $Id$
 cvs -z4 -q
 diff -u3 -p
 update -dP
