@@ -32,6 +32,12 @@ else
     export FULL_HOSTNAME=`hostname -f`
 fi
 
+
+## SET UP GENEHACK_LOCATION VARIABLE AND OTHER SECRET STUFF
+if [ -e $HOME/.bash_private ]; then
+    . $HOME/.bash_private
+fi
+
 ## BASH COMPLETION
 if [ -e /etc/profile.d/bash-completion ]; then
     . /etc/profile.d/bash-completion
