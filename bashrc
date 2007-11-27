@@ -57,8 +57,8 @@ export VISUAL=vim
 
 ## FETCHMAIL
 #  if we're on a mail reading machine, set FETCHMAILHOME
-if [ -e $HOME/etc/fetchmail/fetchmailrc ]; then
-    export FETCHMAILHOME=$HOME/etc/fetchmail
+if [ -e $HOME/private/fetchmailrc ]; then
+    export FETCHMAILHOME=$HOME/private
 fi
 
 ## FUNCTIONS
