@@ -5,6 +5,11 @@
 
 COLOR_BIN=$HOME/bin/color
 
+if [ ! -d $HOME/bin ]; then
+    echo "creating bin dir";
+    mkdir -p $HOME/bin
+fi
+
 if [ -e $COLOR_BIN ]; then
     echo "it looks like there's already a color binary in place."
     echo "cowardly refusing to just blow it away."
