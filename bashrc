@@ -39,11 +39,13 @@ if [ -e $HOME/.bash_private ]; then
 fi
 
 ## BASH COMPLETION
-if [ -e /etc/profile.d/bash-completion ]; then
-    . /etc/profile.d/bash-completion
-elif [ -e /etc/profile.d/complete.bash ]; then
-    . /etc/profile.d/complete.bash
+if [ -e /etc/bash_completion ]; then . /etc/bash_completion; fi
+if [ -e $HOME/.bash_completion.d ]; then
+    for file in $HOME/.bash_completion.d/* ; do
+        . $file
+    done
 fi
+
 
 ## ALIASES
 if [ -e $HOME/.aliases ]; then
