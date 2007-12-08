@@ -14,6 +14,10 @@ if [ $OS_TYPE = 'linux' ]; then
     eval `dircolors -b`
     alias ls='/bin/ls --color=auto --classify'
 fi
+if [ $GENEHACK_LOCATION = 'LAPTOP' ]; then
+    eval `/opt/bin/dircolors -b`
+    alias ls='/opt/bin/ls --color=auto --classify'
+fi
 
 alias grep='grep --color=auto'
 
