@@ -3,6 +3,10 @@
 # $Id$
 # $URL$
 
+ln -sfv ~/etc/sbin/make-etc-links ~/bin
+
+echo
+
 for i in           \
     Xdefaults      \
     aliases        \
@@ -11,10 +15,13 @@ for i in           \
     bashrc         \
     cvsrc          \
     screenrc       \
-    xinitrc        \
 ; do
     ln -sfv ~/etc/$i ~/.$i
 done
+
+if [ $GENEHACK_LOCATION != "LAPTOP" ]; then
+    ln -sfv ~/etc/xinitrc ~/.xinitrc
+fi
 
 echo 
 
