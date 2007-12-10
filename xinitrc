@@ -14,7 +14,7 @@ export __GL_LOG_MAX_ANISO=1
 
 ## KDE 
 export QT_XFT=1
-#exec startkde
+exec startkde
 
 ## GNOME
 #export WINDOW_MANAGER="/usr/bin/metacity"
@@ -28,7 +28,7 @@ export QT_XFT=1
 #exec /usr/bin/enlightenment-0.17
 
 ## XFCE4
-exec startxfce4
+#exec startxfce4
 
 ## RATPOISON
 #exec ratpoison
