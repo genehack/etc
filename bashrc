@@ -96,6 +96,9 @@ fi
 if [ -e $HOME/bin ]; then
     export PATH=$HOME/bin:$PATH
 fi
+if [ -e /sw/bin ]; then
+    export PATH=$PATH:/sw/bin
+fi
 
 ## SET PROMPT
 setprompt() {
