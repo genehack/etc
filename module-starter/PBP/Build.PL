@@ -2,6 +2,9 @@ use strict;
 use warnings;
 use Module::Build;
 
+# $Id$ 
+# $URL$
+
 my $builder = Module::Build->new(
     module_name         => '<MAIN MODULE>',
     license             => '<LICENSE>',

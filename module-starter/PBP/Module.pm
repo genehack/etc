@@ -1,20 +1,15 @@
 package <MODULE NAME>;
 
+# $Id$
+# $URL$
+
 use warnings;
 use strict;
 use Carp;
 
-use version; $VERSION = qv('0.0.3');
-
-# Other recommended modules (uncomment to use):
-#  use IO::Prompt;
-#  use Perl6::Export;
-#  use Perl6::Slurp;
-#  use Perl6::Say;
-
+use version; $VERSION = qv('0.0.1');
 
 # Module implementation here
-
 
 1; # Magic true value required at end of module
 __END__

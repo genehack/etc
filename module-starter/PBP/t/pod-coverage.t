@@ -1,4 +1,5 @@
-#!perl -T
+# $Id$
+# $URL$
 
 use Test::More;
 eval "use Test::Pod::Coverage 1.04";
