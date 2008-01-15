@@ -80,9 +80,9 @@ start_emacs () {
 ## KEYCHAIN 
 `which keychain 2>&1 >/dev/null`
 if [ $? = 0 ]; then
-    if [ $GENEHACK_LOCATION = "HOME" ]; then
-    	keychain -q B1CFBD6F  2>/dev/null
-    fi
+#     if [ $GENEHACK_LOCATION = "HOME" ]; then
+#     	keychain -q B1CFBD6F  2>/dev/null
+#     fi
     if [ -e ~/.keychain/${HOSTNAME}-sh-gpg ]; then
     	. ~/.keychain/${HOSTNAME}-sh-gpg > /dev/null
         export GPG_TTY=`tty`
