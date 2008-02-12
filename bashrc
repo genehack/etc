@@ -99,7 +99,9 @@ fi
 
 ## PATHS
 if [ $GENEHACK_LOCATION = "LAPTOP" ]; then
-    export PATH=/opt/bin:$PATH
+    if [ -d /opt/bin ]; then
+        export PATH=/opt/bin:$PATH
+    fi
 fi
 if [ -e $HOME/bin ]; then
     export PATH=$HOME/bin:$PATH
