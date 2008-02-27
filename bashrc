@@ -118,7 +118,7 @@ setprompt() {
   P2="($(color green)\h$(color off))"
 
   if [ -e /proc/loadavg ]; then
-      read load etc < /proc/loadavg
+      load=( $(</proc/loadavg) )
   else
       load=""
   fi
