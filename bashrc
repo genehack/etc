@@ -39,7 +39,9 @@ if [ -e $HOME/.bash_private ]; then
 fi
 
 ## BASH COMPLETION
-if [ -e /etc/bash_completion ]; then . /etc/bash_completion; fi
+if [ -e /etc/bash_completion ]; then 
+    . /etc/bash_completion; 
+fi
 if [ -e $HOME/.bash_completion.d ]; then
     for file in $HOME/.bash_completion.d/* ; do
         . $file
@@ -78,24 +80,25 @@ start_emacs () {
 
 
 ## KEYCHAIN 
-`which keychain 2>&1 >/dev/null`
-if [ $? = 0 ]; then
-#     if [ $GENEHACK_LOCATION = "HOME" ]; then
-#     	keychain -q B1CFBD6F  2>/dev/null
-#     fi
-    if [ -e ~/.keychain/${HOSTNAME}-sh-gpg ]; then
-    	. ~/.keychain/${HOSTNAME}-sh-gpg > /dev/null
-        export GPG_TTY=`tty`
-    fi
-
-    if [ -e ~/.ssh/id_dsa ]; then
-        keychain -q ~/.ssh/id_dsa 2>/dev/null
-    fi
-    if [ -e ~/.keychain/${HOSTNAME}-sh ]; then
-        . ~/.keychain/${HOSTNAME}-sh > /dev/null
+if shopt -q login_shell ; then
+    `which keychain 2>&1 >/dev/null`
+    if [ $? = 0 ]; then
+#        if [ $GENEHACK_LOCATION = "HOME" ]; then
+#     	    keychain -q B1CFBD6F  2>/dev/null
+#        fi
+        if [ -e ~/.keychain/${HOSTNAME}-sh-gpg ]; then
+    	    . ~/.keychain/${HOSTNAME}-sh-gpg > /dev/null
+            export GPG_TTY=`tty`
+        fi
+        
+        if [ -e ~/.ssh/id_dsa ]; then
+            keychain -q ~/.ssh/id_dsa 2>/dev/null
+        fi
+        if [ -e ~/.keychain/${HOSTNAME}-sh ]; then
+            . ~/.keychain/${HOSTNAME}-sh > /dev/null
+        fi
     fi
 fi
-
 
 ## PATHS
 if [ $GENEHACK_LOCATION = "LAPTOP" ]; then
