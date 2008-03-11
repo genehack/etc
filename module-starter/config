@@ -1,5 +1,3 @@
 author:  John SJ Anderson
 email:   genehack@genehack.org
-builder: Module::Build
-plugins: Module::Starter::PBP
-template_dir: /home/genehack/.module-starter/PBP
+plugins: Module::Starter::Genehack
