@@ -106,12 +106,34 @@ if [ $GENEHACK_LOCATION = "LAPTOP" ]; then
         export PATH=/opt/bin:$PATH
     fi
 fi
+# stack things to get the right order: 
+# start with system stuff
+# /sw before system stuff
+# ~/local before /sw
+# ~/bin before ~/local
+if [ -e /sw ]; then
+    if [ -e /sw/bin ]; then
+        export PATH=/sw/bin:$PATH
+    fi
+    if [ -e /sw/man ]; then
+        export MANPATH=/sw/man:$MANPATH
+    fi
+fi
+if [ -e $HOME/local ]; then
+    if [ -e $HOME/local/bin ]; then
+        export PATH=$HOME/local/bin:$PATH
+    fi
+    if [ -e $HOME/local/man ]; then
+        export MANPATH=$HOME/local/man:$MANPATH
+    fi
+fi
 if [ -e $HOME/bin ]; then
     export PATH=$HOME/bin:$PATH
 fi
-if [ -e /sw/bin ]; then
-    export PATH=$PATH:/sw/bin
+if [ -e $HOME/man ]; then
+    export MANPATH=$HOME/man:$MANPATH
 fi
+
 
 ## SET PROMPT
 setprompt() {
