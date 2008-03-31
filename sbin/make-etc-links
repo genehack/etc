@@ -10,9 +10,11 @@ echo
 for i in           \
     Xdefaults      \
     aliases        \
+    awesomerc      \
     bash_logout    \
     bash_profile   \
     bashrc         \
+    conkyrc        \
     cvsrc          \
     screenrc       \
 ; do

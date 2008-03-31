@@ -1,0 +1,15 @@
+background no
+no_buffers yes
+out_to_console yes
+update_interval 1 
+uppercase no
+use_spacer none
+total_run_times 0
+TEXT
+0 widget_tell clock ${time %a %d %b %Y %H:%M:%S}
+0 widget_tell loadavg LA: ${loadavg}   
+0 widget_tell cpulabel cpu:
+0 widget_tell cpugraph ${cpu cpu0}
+0 widget_tell memperc MEM: ${memperc}%
+0 widget_tell swapperc SWAP: ${swapperc}%
+
