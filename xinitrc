@@ -5,16 +5,16 @@
 #xmodmap /home/jacobs/lib/kmp/dvorak.keymap
 
 ## OpenGL options
-export __GL_FSSA_MDOE=2
-export __GL_LOG_MAX_ANISO=1
+#export __GL_FSSA_MDOE=2
+#export __GL_LOG_MAX_ANISO=1
 
 ## DWM
 #export PATH=$PATH:/opt/local/dwm-4.3/bin
 #exec dwm
 
 ## KDE 
-export QT_XFT=1
-exec startkde
+#export QT_XFT=1
+#exec startkde
 
 ## GNOME
 #export WINDOW_MANAGER="/usr/bin/metacity"
@@ -48,6 +48,7 @@ exec startkde
 #
 
 ## AWESOME
-#dmenu &
-#xterm &
-#exec awesome
+xterm &
+/home/genehack/bin/conky | awesome-client &
+/home/genehack/bin/rotate-backdrop
+exec awesome
