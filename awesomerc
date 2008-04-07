@@ -42,7 +42,22 @@ screen 0 {
         layout floating   { image = "/usr/share/awesome/icons/layouts/floatingw.png" }
     }
 
-    statusbar mystatusbar {
+    statusbar bottombar {
+        position = "bottom"
+
+        textbox clock {
+            text_align = "right"
+            align = "right" 
+            width = "250" # Note: Once you get this working, you may need to tweak the 'width' a bit depending on the font you're using.
+        }    
+
+        textbox nowplaying {
+            text_align = "left"
+            align = "left"
+        }                 
+    }
+
+    statusbar topbar {
         position = "top"
 
         taglist mytaglist {
@@ -69,7 +84,8 @@ screen 0 {
             mouse { button = "5" modkey = {"Mod4"} command = "client_swapprev"  }
         }
 
-        textbox loadavg { align = "right" }
+        textbox loadavg  { align = "right" }
+
         textbox cpulabel { align = "right" }
         graph cpugraph {
             data {
@@ -82,14 +98,9 @@ screen 0 {
             align = "right"
         }
 
-        textbox memperc { align="right" width = 100 }
+        textbox memperc  { align="right" width = 100 }
         textbox swapperc { align="right" }
 
-        textbox clock {
-            text_align = "right"
-            align = "right" 
-            width = "250" # Note: Once you get this working, you may need to tweak the 'width' a bit depending on the font you're using.
-        }    
     }
 }
 
