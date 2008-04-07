@@ -12,4 +12,5 @@ TEXT
 0 widget_tell cpugraph ${cpu cpu0}
 0 widget_tell memperc MEM: ${memperc}%
 0 widget_tell swapperc SWAP: ${swapperc}%
+0 widget_tell nowplaying NOW PLAYING: ${execi 60 /home/genehack/bin/get-current-title ankh}
 
