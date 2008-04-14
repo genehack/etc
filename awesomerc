@@ -112,6 +112,7 @@ rules {
     rule {name = "MPlayer"  float = true  tags = "watch" }
     rule {name = "pinentry" float = true}
     rule {name = "xfrun4"   float = true}
+    rule {xproperty_name = "WM_CLASS" xproperty_value = "pidgin" float = true tags = "chat" }
 }
 
 mouse {
