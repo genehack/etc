@@ -48,7 +48,7 @@
 #
 
 ## AWESOME
-xmodmap /home/genehack/.Xmodmap
+xmodmap /home/genehack/.Xmodmap &
 xterm &
 /home/genehack/bin/conky | awesome-client &
 /home/genehack/bin/rotate-backdrop
