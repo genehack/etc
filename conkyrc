@@ -6,11 +6,11 @@ uppercase no
 use_spacer none
 total_run_times 0
 TEXT
-0 widget_tell clock ${time %a %d %b %Y %H:%M:%S}
-0 widget_tell loadavg LA: ${loadavg}   
-0 widget_tell cpulabel cpu:
-0 widget_tell cpugraph ${cpu cpu0}
-0 widget_tell memperc MEM: ${memperc}%
-0 widget_tell swapperc SWAP: ${swapperc}%
-0 widget_tell nowplaying NOW PLAYING: ${execi 60 /home/genehack/bin/get-current-title ankh}
+0 widget_tell topbar loadavg text LA: ${loadavg}   
+0 widget_tell topbar cpulabel text cpu:
+0 widget_tell topbar cpugraph data cpugraphdata ${cpu cpu0}
+0 widget_tell topbar memperc text MEM: ${memperc}%
+0 widget_tell topbar swapperc text SWAP: ${swapperc}%
+0 widget_tell bottombar clock text ${time %a %d %b %Y %H:%M:%S}
+0 widget_tell bottombar nowplaying text NOW PLAYING: ${execi 60 /home/genehack/bin/get-current-title ankh}
 
