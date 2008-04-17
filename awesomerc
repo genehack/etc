@@ -1,34 +1,33 @@
 # -*- conf -*-
-screen 0 {
-	general {
-        border = 1
-        font = "Terminus-8"
-        resize_hints = true
-        resize_hints = true
-        sloppy_focus = false
-        sloppy_focus_raise = false
-        snap = 8
-    }
+screen 0 { 
+    styles {
+        normal {
+            font = "terminus 8"
+            fg = "#eeeeee"
+            bg = "#111111"
+            border = "#111111"
+        }
+        focus {
+            fg = "#ffffff"
+            bg = "#111144"
+            border = "#111144"
+        }
+        urgent {
+            fg = "#111111"
+            bg = "#ff4500"
+        }
+     }
 
-    colors {
-        normal_border = "#111111"
-        normal_bg     = "#111111"
-        normal_fg     = "#eeeeee"
-        focus_border  = "#111144"
-        focus_bg      = "#111144"
-        focus_fg      = "#ffffff"
-    }
-    
     tags { 
-		tag chat   { layout = "floating" }
+	tag chat   { layout = "floating" }
         tag browse { layout = "max" }
         tag home   { layout = "max" }
         tag away   { layout = "max" }
         tag edit   { layout = "max" }
-        tag 6      { }
-        tag 7      { }
-        tag 8      { }
-        tag 9      { }
+        tag 6      { layout = "floating" }
+        tag 7      { layout = "floating" }
+        tag 8      { layout = "floating" }
+        tag 9      { layout = "floating" }
     }
     
     layouts {
@@ -77,7 +76,7 @@ screen 0 {
         }
 
         tasklist mytasklist {
-            show_icons = "false"
+            show_icons = "true"
             mouse { button = "4"                   command = "client_focusnext" }
             mouse { button = "5"                   command = "client_focusprev" }
             mouse { button = "4" modkey = {"Mod4"} command = "client_swapnext"  }
@@ -87,10 +86,9 @@ screen 0 {
         textbox loadavg  { align = "right" }
 
         textbox cpulabel { align = "right" }
-        graph cpugraph {
-            data {
+        graph "cpugraph" {
+            data "cpugraphdata" {
                 max = 100.0
-                style = "bottom"
                 fg = "#ccccff"
             }
             bg = "#000000"
@@ -104,6 +102,7 @@ screen 0 {
     }
 }
 
+
 rules {
     rule {name = "Acroread" float = true  tags = "watch" }
     rule {name = "Emacs"    float = false tags = "edit"}
@@ -114,6 +113,7 @@ rules {
     rule {name = "xfrun4"   float = true}
     rule {xproperty_name = "WM_CLASS" xproperty_value = "pidgin" float = true tags = "chat" }
 }
+
 
 mouse {
     root   { button = "3"                   command = "spawn" arg = "exec xterm" }
