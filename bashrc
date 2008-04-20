@@ -23,9 +23,9 @@ fi
 
 ## $HOSTNAME 
 if [ $OS_TYPE = 'darwin' -o $OS_TYPE = 'freebsd' ]; then
-    export HOSTNAME=`hostname -s`
-    export DOMAIN=`hostname | cut -f2- -d.`
-    export FULL_HOSTNAME=`hostname`
+    export HOSTNAME=`/bin/hostname -s`
+    export DOMAIN=`/bin/hostname | cut -f2- -d.`
+    export FULL_HOSTNAME=`/bin/hostname`
 else
     export HOSTNAME=`hostname`
     export DOMAIN=`hostname -d`
@@ -102,8 +102,13 @@ fi
 
 ## PATHS
 if [ $GENEHACK_LOCATION = "LAPTOP" ]; then
-    if [ -d /opt/bin ]; then
-        export PATH=/opt/bin:$PATH
+    if [ -d /opt/local/bin ]; then
+        export PATH=/opt/local/bin:$PATH
+    fi
+    if [ -e /opt/perl/5.8.8/bin ]; then
+        export PATH=/opt/perl/5.8.8/bin:$PATH
+    elif [ -e /opt/perl/5.10.0/bin ]; then
+        export PATH=/opt/perl/5.10.0/bin:$PATH
     fi
 fi
 # stack things to get the right order: 

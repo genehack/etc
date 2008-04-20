@@ -15,8 +15,8 @@ if shopt -q login_shell ; then
         eval `dircolors -b`
         alias ls='/bin/ls --color=auto --classify'
     elif [ $GENEHACK_LOCATION = 'LAPTOP' ]; then
-        eval `/opt/bin/dircolors -b`
-        alias ls='/opt/bin/ls --color=auto --classify'
+        eval `/opt/local/bin/dircolors -b`
+        alias ls='/opt/local/bin/ls --color=auto --classify'
     fi
 fi
 alias grep='grep --color=auto'
