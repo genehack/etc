@@ -21,6 +21,10 @@ if shopt -q login_shell ; then
 fi
 alias grep='grep --color=auto'
 
+if [ -e /Applications/Emacs.app/Contents/MacOS/Emacs ]; then
+    alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+fi
+
 #  ssh shortcuts
 alias gho='ssh genehack.org'
 alias ghc='ssh genehack.com'
