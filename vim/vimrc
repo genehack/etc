@@ -1,4 +1,5 @@
 " $Id$
+set nocompatible
 syntax on
 colorscheme advantage
 
