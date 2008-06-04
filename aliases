@@ -37,3 +37,5 @@ alias ps-id='svn ps svn:keywords "Id URL"'
 
 alias find-common='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 25'
 
+# wtf?
+unalias which
