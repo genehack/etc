@@ -12,5 +12,5 @@ TEXT
 0 widget_tell topbar memperc text MEM: ${memperc}%
 0 widget_tell topbar swapperc text SWAP: ${swapperc}%
 0 widget_tell bottombar clock text ${time %a %d %b %Y %H:%M:%S}
-0 widget_tell bottombar nowplaying text NOW PLAYING: ${execi 60 /home/genehack/bin/get-current-title ankh}
+0 widget_tell bottombar nowplaying text NOW PLAYING: ${execi 60 /home/genehack/bin/get-current-title}
 
