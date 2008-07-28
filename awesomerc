@@ -110,7 +110,7 @@ rules {
     rule {name = "Gimp"     float = true  tags = "6" }
     rule {name = "MPlayer"  float = true  tags = "watch" }
     rule {name = "pinentry" float = true}
-    rule {name = "xfrun4"   float = true}
+    rule {name = "gmrun"    float = true}
     rule {xproperty_name = "WM_CLASS" xproperty_value = "pidgin" float = true tags = "chat" }
 }
 
@@ -123,7 +123,7 @@ mouse {
 }
 
 keys {
-    key { modkey = {"Mod4"}                      key = "space"  command = "spawn" arg = "exec xfrun4"}  
+    key { modkey = {"Mod4"}                      key = "space"  command = "spawn" arg = "exec gmrun"}  
     key { modkey = {"Mod4"}                      key = "f"      command = "spawn" arg = "exec firefox-bin" }
     key { modkey = {"Mod4"}                      key = "e"      command = "spawn" arg = "exec /home/genehack/local/bin/emacs" }
     key { modkey = {"Mod4"}                      key = "t"      command = "spawn" arg = "exec /home/genehack/bin/xterm" }
