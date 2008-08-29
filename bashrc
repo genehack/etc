@@ -57,7 +57,7 @@ fi
 ## EDITORS
 ### FIXME should really get things to where these can be set to emacs...
 export EDITOR=vim
-export VISUAL=vim
+export VISUAL=gvim
 
 ## FETCHMAIL
 #  if we're on a mail reading machine, set FETCHMAILHOME
