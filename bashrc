@@ -90,6 +90,16 @@ if [ $GENEHACK_LOCATION = "LAPTOP" ]; then
         export PATH=/opt/perl/5.10.0/bin:$PATH
     fi
 fi
+if [ -e /opt/perl ]; then
+    export PATH=/opt/perl/bin:$PATH
+fi
+if [ -e /opt/git ]; then
+    export PATH=/opt/git/bin:$PATH
+fi
+if [ -e /opt/subversion ]; then
+    export PATH=/opt/subversion/bin:$PATH
+fi
+
 # stack things to get the right order: 
 # start with system stuff
 # /sw before system stuff

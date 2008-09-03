@@ -10,7 +10,7 @@ alias mv="mv -i"
 alias rm="rm -i"
 
 #  modify ls
-if shopt -q login_shell ; then
+#if shopt -q login_shell ; then
     if [ $OS_TYPE = 'linux' ]; then
         eval `dircolors -b`
         alias ls='/bin/ls --color=auto --classify'
@@ -18,7 +18,7 @@ if shopt -q login_shell ; then
         eval `/opt/local/bin/dircolors -b`
         alias ls='/opt/local/bin/ls --color=auto --classify'
     fi
-fi
+#fi
 alias grep='grep --color=auto'
 
 if [ -e /Applications/Emacs.app/Contents/MacOS/Emacs ]; then
