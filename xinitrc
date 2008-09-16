@@ -49,7 +49,7 @@
 
 ## AWESOME
 xmodmap /home/genehack/.Xmodmap &
-xterm &
-/home/genehack/bin/conky | awesome-client &
+setxkbmap -option "ctrl:nocaps" &
 /home/genehack/bin/rotate-backdrop
-exec awesome
+/home/genehack/bin/run-conky &
+exec /usr/local/bin/awesome
