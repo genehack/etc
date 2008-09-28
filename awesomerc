@@ -19,12 +19,12 @@ screen 0 {
      }
 
     tags { 
-	tag chat   { layout = "floating" }
-        tag browse { layout = "max" }
-        tag home   { layout = "max" }
-        tag away   { layout = "max" }
-        tag edit   { layout = "max" }
-        tag mail   { layout = "max" }
+        tag chat   { layout = "floating" }
+        tag browse { layout = "max"      }
+        tag home   { layout = "max"      }
+        tag mail   { layout = "max"      }
+        tag edit   { layout = "max"      }
+        tag 6      { layout = "floating" }
         tag 7      { layout = "floating" }
         tag 8      { layout = "floating" }
         tag 9      { layout = "floating" }
