@@ -55,9 +55,9 @@ if [ -e $HOME/.aliases ]; then
 fi
 
 ## EDITORS
-### FIXME should really get things to where these can be set to emacs...
-export EDITOR=vim
-export VISUAL=gvim
+export EDITOR=/home/genehack/local/bin/emacsclient
+export GIT_EDITOR='/home/genehack/local/bin/emacsclient -c'
+export VISUAL=/home/genehack/local/bin/emacsclient
 
 ## FETCHMAIL
 #  if we're on a mail reading machine, set FETCHMAILHOME
