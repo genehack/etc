@@ -84,10 +84,10 @@ if [ $GENEHACK_LOCATION = "LAPTOP" ]; then
     if [ -d /opt/local/bin ]; then
         export PATH=/opt/local/bin:$PATH
     fi
-    if [ -e /opt/perl/5.8.8/bin ]; then
-        export PATH=/opt/perl/5.8.8/bin:$PATH
-    elif [ -e /opt/perl/5.10.0/bin ]; then
+    if [ -e /opt/perl/5.10.0/bin ]; then
         export PATH=/opt/perl/5.10.0/bin:$PATH
+    elif [ -e /opt/perl/5.8.8/bin ]; then
+        export PATH=/opt/perl/5.8.8/bin:$PATH
     fi
 fi
 if [ -e /opt/perl ]; then
@@ -98,6 +98,9 @@ if [ -e /opt/git ]; then
 fi
 if [ -e /opt/subversion ]; then
     export PATH=/opt/subversion/bin:$PATH
+fi
+if [ -e /opt/emacs ]; then
+    export PATH=/opt/emacs/bin:$PATH
 fi
 
 # stack things to get the right order: 
