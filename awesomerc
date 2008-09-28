@@ -106,7 +106,7 @@ screen 0 {
 
 rules {
     rule {name = "Acroread"     float = true  tags = "watch" }
-    rule {name = "Emacs"        float = false tags = "edit"}
+    rule {name = "Emacs"        float = true  }
     rule {name = "Firefox"      float = false tags = "browse"}
     rule {name = "Gimp"         float = true  tags = "6" }
     rule {name = "MPlayer"      float = true  tags = "watch" }
