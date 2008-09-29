@@ -55,9 +55,9 @@ if [ -e $HOME/.aliases ]; then
 fi
 
 ## EDITORS
-export EDITOR=/home/genehack/local/bin/emacsclient
-export GIT_EDITOR='/home/genehack/local/bin/emacsclient -c'
-export VISUAL=/home/genehack/local/bin/emacsclient
+export EDITOR=/opt/emacs/bin/emacsclient
+export GIT_EDITOR='/opt/emacs/bin/emacsclient -c'
+export VISUAL=/opt/emacs/bin/emacsclient
 
 ## FETCHMAIL
 #  if we're on a mail reading machine, set FETCHMAILHOME
