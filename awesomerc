@@ -127,7 +127,8 @@ mouse {
 keys {
     #key { modkey = {"Mod4"}                      key = "space"  command = "spawn" arg = "exec gmrun"}  
     key { modkey = {"Mod4"}                      key = "b"      command = "spawn" arg = "exec thunderbird" }
-    key { modkey = {"Mod4"}                      key = "e"      command = "spawn" arg = "exec /home/genehack/local/bin/emacsclient -cn" }
+    key { modkey = {"Mod4"}                      key = "e"      command = "spawn" arg = "exec /opt/emacs/bin/emacsclient -cn" }
+    key { modkey = {"Mod4","Shift"}              key = "e"      command = "spawn" arg = "exec /opt/emacs/bin/emacs" }
     key { modkey = {"Mod4"}                      key = "f"      command = "spawn" arg = "exec firefox" }
     key { modkey = {"Mod4"}                      key = "t"      command = "spawn" arg = "exec /home/genehack/bin/xterm" }
     key { modkey = {"Mod4","Shift"}              key = "t"      command = "spawn" arg = "exec /home/genehack/bin/big_xterm" }
