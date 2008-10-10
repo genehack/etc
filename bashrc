@@ -90,18 +90,12 @@ if [ $GENEHACK_LOCATION = "LAPTOP" ]; then
         export PATH=/opt/perl/5.8.8/bin:$PATH
     fi
 fi
-if [ -e /opt/perl ]; then
-    export PATH=/opt/perl/bin:$PATH
-fi
-if [ -e /opt/git ]; then
-    export PATH=/opt/git/bin:$PATH
-fi
-if [ -e /opt/subversion ]; then
-    export PATH=/opt/subversion/bin:$PATH
-fi
-if [ -e /opt/emacs ]; then
-    export PATH=/opt/emacs/bin:$PATH
-fi
+
+for PKG in awesome emacs git perl subversion ; do
+    if [ -e /opt/$PKG ]; then
+        export PATH=/opt/$PKG/bin:$PATH
+    fi
+done
 
 # stack things to get the right order: 
 # start with system stuff
