@@ -31,14 +31,14 @@ screen 0 {
     }
     
     layouts {
-        layout tile       { image = "/usr/local/share/awesome/icons/layouts/tilew.png" }
-        layout tileleft   { image = "/usr/local/share/awesome/icons/layouts/tileleftw.png" }
-        layout tilebottom { image = "/usr/local/share/awesome/icons/layouts/tilebottomw.png" }
-        layout tiletop    { image = "/usr/local/share/awesome/icons/layouts/tiletopw.png" }
-        layout max        { image = "/usr/local/share/awesome/icons/layouts/maxw.png" }
-        layout spiral     { image = "/usr/local/share/awesome/icons/layouts/spiralw.png" }
-        layout dwindle    { image = "/usr/local/share/awesome/icons/layouts/dwindlew.png" }
-        layout floating   { image = "/usr/local/share/awesome/icons/layouts/floatingw.png" }
+        layout tile       { image = "/opt/awesome/share/awesome/icons/layouts/tilew.png" }
+        layout tileleft   { image = "/opt/awesome/share/awesome/icons/layouts/tileleftw.png" }
+        layout tilebottom { image = "/opt/awesome/share/awesome/icons/layouts/tilebottomw.png" }
+        layout tiletop    { image = "/opt/awesome/share/awesome/icons/layouts/tiletopw.png" }
+        layout max        { image = "/opt/awesome/share/awesome/icons/layouts/maxw.png" }
+        layout spiral     { image = "/opt/awesome/share/awesome/icons/layouts/spiralw.png" }
+        layout dwindle    { image = "/opt/awesome/share/awesome/icons/layouts/dwindlew.png" }
+        layout floating   { image = "/opt/awesome/share/awesome/icons/layouts/floatingw.png" }
     }
 
     statusbar bottombar {
@@ -140,7 +140,7 @@ keys {
 
     key { modkey = {"Mod4", "Contr`ol", "Shift"}  key = "c"      command = "client_kill" }
 
-    key { modkey = {"Mod4", "Control", "Shift" } key = "r"      command = "exec" arg = "/usr/local/bin/awesome" }
+    key { modkey = {"Mod4", "Control", "Shift" } key = "r"      command = "exec" arg = "/opt/awesome/bin/awesome" }
     key { modkey = {"Mod4", "Control", "Shift" } key = "q"      command = "quit" }
     key { modkey = {"Mod4", "Control", "Shift" } key = "b"      command = "statusbar_toggle" }
  
