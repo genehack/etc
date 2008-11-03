@@ -97,6 +97,11 @@ for PKG in awesome emacs git perl subversion ; do
     fi
 done
 
+if [ -e /opt/local/perl/bin ]; then
+    export PATH=/opt/local/perl/bin:$PATH
+fi
+
+
 # stack things to get the right order: 
 # start with system stuff
 # /sw before system stuff
