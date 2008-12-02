@@ -1,5 +1,5 @@
-" $Id$
 set nocompatible
 syntax on
 colorscheme advantage
 
+autocmd BufWritePre *.pl,*.pm :%s/\s\+$//e
