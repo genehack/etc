@@ -7,27 +7,27 @@ echo
 for i in           \
     Xmodmap        \
     aliases        \
-    awesomerc      \
     bash_logout    \
     bash_profile   \
     bashrc         \
-    conkyrc        \
     screenrc       \
 ; do
     ln -sfv ~/etc/$i ~/.$i
 done
 
-if [ $GENEHACK_LOCATION != "LAPTOP" ]; then
+if [ $OS_TYPE != "darwin" ]; then
     ln -sfv ~/etc/xinitrc ~/.xinitrc
+fi
+
+if [ -e /opt/awesome ]; then
+    ln -sfv ~/etc/awesomerc ~/.awesomerc
+    ln -sfv ~/etc/conkyrc   ~/.conkyrc
 fi
 
 echo 
 
-ln -sfv ~/etc/subversion/config  ~/.subversion/config
-ln -sfv ~/etc/subversion/servers ~/.subversion/servers
-ln -sfv ~/etc/vim/vimrc          ~/.vimrc
-
 rm -f ~/.vim
+ln -sfv ~/etc/vim/vimrc          ~/.vimrc
 ln -sfv ~/etc/vim                ~/.vim
 
 echo
