@@ -1,15 +1,10 @@
-# $Id$
-
 startup_message off
 
 screen -t TOP     0 top
-screen -t sh      1 bash
+screen -t emacs   1 emacs
+screen -t sh      2 bash
+screen -t sh      3 bash
 
-#blankerprg watch -n 60 clear && "figlet -c `date \"+%A%n%B %d, %G%n%I:%M%P\"`" && cowsay `fortune`
-idle 3600 blanker
-hardstatus alwayslastline "%{.kY} <%H> %{.bW} %-w%{.rW}%n %t%{-}%+w %=%{.kR} [%l] %{.kw} %D %d %M %Y %c:%s"
-
-
-bindkey -k kb stuff ^H
+alwayslastline "%{.kY} <%H> %{.bW} %-w%{.rW}%n %t%{-}%+w %=%{.kR} [%l] %{.kw} %D %d %M %Y %c:%s"
 
 select 1

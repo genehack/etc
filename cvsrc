@@ -1,5 +1,0 @@
-# $Id$
-cvs -z4 -q
-diff -u3 -p
-update -dP
-checkout -P

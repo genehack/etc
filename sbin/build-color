@@ -1,8 +1,5 @@
 #! /bin/sh
 
-# $Id$
-# $URL$
-
 COLOR_BIN=$HOME/bin/color
 
 if [ ! -d $HOME/bin ]; then

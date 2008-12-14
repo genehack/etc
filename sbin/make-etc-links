@@ -1,14 +1,10 @@
 #! /bin/bash
 
-# $Id$
-# $URL$
-
 ln -sfv ~/etc/sbin/make-etc-links ~/bin
 
 echo
 
 for i in           \
-    Xdefaults      \
     Xmodmap        \
     aliases        \
     awesomerc      \
@@ -16,7 +12,6 @@ for i in           \
     bash_profile   \
     bashrc         \
     conkyrc        \
-    cvsrc          \
     screenrc       \
 ; do
     ln -sfv ~/etc/$i ~/.$i
@@ -32,13 +27,8 @@ ln -sfv ~/etc/subversion/config  ~/.subversion/config
 ln -sfv ~/etc/subversion/servers ~/.subversion/servers
 ln -sfv ~/etc/vim/vimrc          ~/.vimrc
 
+rm -f ~/.vim
+ln -sfv ~/etc/vim                ~/.vim
+
 echo
 
-rm -f ~/.module-starter 
-if [ $GENEHACK_LOCATION = "WORK" ]; then
-    ln -sfv ~/etc/module-starter-work ~/.module-starter
-else
-    ln -sfv ~/etc/module-starter ~/.module-starter
-fi
-
-rm -f ~/.vim             && ln -sfv ~/etc/vim            ~/.vim

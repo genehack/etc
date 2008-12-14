@@ -1,39 +1,21 @@
 # -*- sh -*-
-### genehack bash aliases 
 
-# $Id$
-# $URL$
 
-#  prevent some mistakes
-alias cp="cp -i"
-alias mv="mv -i"
-alias rm="rm -i"
-
-#  modify ls
-#if shopt -q login_shell ; then
-    if [ $OS_TYPE = 'linux' ]; then
-        eval `dircolors -b`
-        alias ls='/bin/ls --color=auto --classify'
-    elif [ $GENEHACK_LOCATION = 'LAPTOP' ]; then
-        eval `/opt/local/bin/dircolors -b`
-        alias ls='/opt/local/bin/ls --color=auto --classify'
-    fi
-#fi
-alias grep='grep --color=auto'
-
-if [ -e /Applications/Emacs.app/Contents/MacOS/Emacs ]; then
-    alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+if [ $OS_TYPE = 'linux' ]; then
+    eval `dircolors -b`
+    alias ls='/bin/ls --color=auto --classify'
+elif [ $GENEHACK_LOCATION = 'LAPTOP' ]; then
+    eval `/opt/local/bin/dircolors -b`
+    alias ls='/opt/local/bin/ls --color=auto --classify'
 fi
 
-#  ssh shortcuts
-alias gho='ssh genehack.org'
-alias ghc='ssh genehack.com'
-alias ghn='ssh genehack.net'
-
-# development
+alias cp="cp -i"
+alias find-common='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 25'
+alias grep='grep --color=auto'
+alias mv="mv -i"
 alias pe-extern='svn pe svn:externals'
 alias pe-ignore='svn pe svn:ignore'
 alias ps-id='svn ps svn:keywords "Id URL"'
+alias rm="rm -i"
 
-alias find-common='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 25'
 

@@ -1,8 +1,4 @@
 # -*- sh -*-
-### genehack .bash_profile
-
-# $Id$
-# $URL$
  
 # how bash decides which config files to read, from the INVOCATION
 # section of the bash(1) man page:
