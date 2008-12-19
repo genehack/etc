@@ -5,6 +5,6 @@ screen -t emacs   1 emacs
 screen -t sh      2 bash
 screen -t sh      3 bash
 
-alwayslastline "%{.kY} <%H> %{.bW} %-w%{.rW}%n %t%{-}%+w %=%{.kR} [%l] %{.kw} %D %d %M %Y %c:%s"
+hardstatus alwayslastline "%{.kY} <%H> %{.bW} %-w%{.rW}%n %t%{-}%+w %=%{.kR} [%l] %{.kw} %D %d %M %Y %c:%s"
 
 select 1
