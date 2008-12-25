@@ -149,7 +149,7 @@ keys {
     key {                                        key = "XF86AudioLowerVolume" command = "spawn" arg = "exec /usr/bin/amixer -q -c0 sset Master,0 10%-" }
     key { modkey = {"Shift"}                     key = "XF86AudioLowerVolume" command = "spawn" arg = "exec /usr/bin/amixer -q -c0 sset Master,0 2%-"  }
     key {                                        key = "XF86AudioMute"        command = "spawn" arg = "exec /usr/bin/amixer -q -c0 sset Master toggle" }
-    key {                                        key = "XF86AudioNext"        command = "spawn" arg = "exec /home/genehack/bin/stream-mp3s" }
+    key {                                        key = "XF86AudioPlay"        command = "spawn" arg = "exec /home/genehack/bin/stream-mp3s" }
 
 
 
