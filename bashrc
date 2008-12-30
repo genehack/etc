@@ -66,8 +66,48 @@ if shopt -q login_shell ; then
     fi
 fi
 
+# next three ganked from <http://muness.blogspot.com/2008/06/stop-presses-bash-said-to-embrace.html>
+sub_dir() {
+    local sub_dir
+    sub_dir=$(stat --printf="%n" "${PWD}")
+    sub_dir=${sub_dir#$1}
+    echo ${sub_dir#/}
+}
+
+git_dir() {
+    base_dir=$(git rev-parse --show-cdup 2>/dev/null) || return 1
+    if [ -n "$base_dir" ]; then
+	base_dir=`cd $base_dir; pwd`
+    else
+	base_dir=$PWD
+    fi
+    sub_dir=$(git rev-parse --show-prefix)
+    sub_dir="/${sub_dir%/}"
+    ref=$(git symbolic-ref -q HEAD || git name-rev --name-only HEAD 2>/dev/null)
+    ref=${ref#refs/heads/}
+    vcs="git"
+    alias pull="git pull"
+    alias commit="git commit -v"
+    alias push="commit ; git push"
+    alias revert="git checkout"
+}
+
+svn_dir() {
+    [ -d ".svn" ] || return 1
+    base_dir="."
+    while [ -d "$base_dir/../.svn" ]; do base_dir="$base_dir/.."; done
+    base_dir=`cd $base_dir; pwd`
+    sub_dir="/$(sub_dir "${base_dir}")"
+    ref=$(svn info "$base_dir" | awk '/^URL/ { sub(".*/","",$0); r=$0 } /^Revision/ { sub("[^0-9]*","",$0); print r":"$0 }')
+    vcs="svn"
+    alias pull="svn up"
+    alias commit="svn commit"
+    alias push="svn ci"
+    alias revert="svn revert"
+}
+
 setprompt() {
-  local load etc
+  local load etc vcs base_dir sub_dir ref last_command
 
   P1="{$(color yellow)\T$(color off)}"
   P2="($(color green)\h$(color off))"
@@ -89,7 +129,22 @@ setprompt() {
     
   P4="-$(color red)\$?$(color off)-"
 
-  P5="<$(color yellow)\w$(color off)>"
+  # this next bit also ganked from http://muness.blogspot.com/2008/06/stop-presses-bash-said-to-embrace.html
+  git_dir || svn_dir
+
+  if [ -n "$vcs" ]; then
+      alias st="$vcs status"
+      alias d="$vcs diff"
+      alias up="pull"
+      alias cdb="cd $base_dir"
+      base_dir="$(basename "${base_dir}")"
+      working_on="$base_dir:"
+      __vcs_ref="[$ref]"
+      __vcs_sub_dir="${sub_dir}"
+      P5="$(color bd)$__vcs_ref$(color off)<$(color yellow)$working_on$__vcs_sub_dir$(color off)>"
+  else
+      P5="<$(color yellow)\w$(color off)>"
+  fi
 
   PS1="\n$P1 $P2 $P3 $P4\n$P5 \$ "
 }
