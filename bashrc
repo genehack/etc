@@ -90,6 +90,7 @@ git_dir() {
     alias commit="git commit -v"
     alias push="commit ; git push"
     alias revert="git checkout"
+    alias dc="d --cached"
 }
 
 svn_dir() {
