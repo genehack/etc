@@ -166,6 +166,7 @@ export HISTIGNORE="&:ls:[bf]g:ext"
 export HISTSIZE=1000000
 export LC_ALL=POSIX
 export RI='-f ansi'
+export TERM=xterm-256color
 
 shopt -s cdspell
 shopt -s dotglob
