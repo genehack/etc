@@ -20,8 +20,8 @@ if [ $OS_TYPE != "darwin" ]; then
 fi
 
 if [ -e /opt/awesome ]; then
-    ln -sfv ~/etc/awesomerc ~/.awesomerc
-    ln -sfv ~/etc/conkyrc   ~/.conkyrc
+    mkdir -p ~/.config/awesome
+    ln -sfv ~/etc/awesome/rc.lua ~/.config/awesome/
 fi
 
 echo 
