@@ -86,11 +86,13 @@ git_dir() {
     ref=$(git symbolic-ref -q HEAD || git name-rev --name-only HEAD 2>/dev/null)
     ref=${ref#refs/heads/}
     vcs="git"
+    alias cleanup="git fsck && git gc"
     alias commit="git commit -s"
     alias dc="d --cached"
     alias l="git log"
     alias lp="l -p"
     alias lss="l --stat --summary"
+    alias newbranch="git checkout -b"
     alias pull="git pull"
     alias push="commit && git push"
     alias revert="git checkout"
