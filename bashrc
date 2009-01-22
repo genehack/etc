@@ -86,11 +86,14 @@ git_dir() {
     ref=$(git symbolic-ref -q HEAD || git name-rev --name-only HEAD 2>/dev/null)
     ref=${ref#refs/heads/}
     vcs="git"
-    alias pull="git pull"
-    alias commit="git commit -v"
-    alias push="commit ; git push"
-    alias revert="git checkout"
+    alias commit="git commit -s"
     alias dc="d --cached"
+    alias l="git log"
+    alias lp="l -p"
+    alias lss="l --stat --summary"
+    alias pull="git pull"
+    alias push="commit && git push"
+    alias revert="git checkout"
 }
 
 svn_dir() {
