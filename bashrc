@@ -155,9 +155,7 @@ setprompt() {
   PS1="\n$P1 $P2 $P3 $P4\n$P5 \$ "
 }
 
-if [ $OS_TYPE = 'darwin' ]; then
-	setprompt
-elif [ $TERM = 'dumb' ]; then
+if [ $TERM = 'dumb' ]; then
     PS1='\n{\T} (\h) -$?-\n<\w> $ '
 else 
     PROMPT_COMMAND=setprompt
