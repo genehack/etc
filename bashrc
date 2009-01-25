@@ -94,7 +94,7 @@ git_dir() {
     alias lss="l --stat --summary"
     alias newbranch="git checkout -b"
     alias pull="git pull"
-    alias push="commit && git push"
+    alias push="commit ; git push"
     alias revert="git checkout"
 }
 
