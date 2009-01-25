@@ -158,7 +158,7 @@ setprompt() {
 if [ $OS_TYPE = 'darwin' ]; then
 	setprompt
 elif [ $TERM = 'dumb' ]; then
-    PS1='\n{\T} (\h) -$?-\n<\w> $ '
+    PS1='$ '
 else 
     PROMPT_COMMAND=setprompt
 fi
