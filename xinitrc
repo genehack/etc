@@ -3,7 +3,7 @@ gnome-settings-daemon &
 
 xmodmap /home/genehack/.Xmodmap &
 setxkbmap -option "ctrl:nocaps" &
-#/home/genehack/local/bin/emacs --daemon
+emacs --daemon
 /home/genehack/bin/run-conky &
 stalonetray &
 gnome-do &
