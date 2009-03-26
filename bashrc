@@ -27,9 +27,15 @@ if [ -e /etc/bash_completion ]; then . /etc/bash_completion; fi
 
 if [ -e $HOME/.aliases ]; then . $HOME/.aliases; fi
 
-export EDITOR=/opt/emacs/bin/emacsclient
-export GIT_EDITOR=vim
-export VISUAL=/opt/emacs/bin/emacsclient
+if [ $GENEHACK_LOCATION = 'WORK' ]; then
+    export EDITOR="$HOME/local/bin/emacsclient -t"
+    export GIT_EDITOR="$HOME/local/bin/emacsclient -t"
+    export VISUAL="$HOME/local/bin/emacsclient -t"
+else
+    export EDITOR=/opt/emacs/bin/emacsclient
+    export GIT_EDITOR=vim
+    export VISUAL=/opt/emacs/bin/emacsclient
+fi
 
 if [ -d /opt/local/bin ]; then
     export PATH=/opt/local/bin:$PATH
