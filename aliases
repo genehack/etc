@@ -4,7 +4,7 @@
 if [ $OS_TYPE = 'linux' ]; then
     eval `dircolors -b`
     alias ls='/bin/ls --color=auto --classify'
-elif [ $GENEHACK_LOCATION = 'LAPTOP' ]; then
+elif [ $OS_TYPE = 'darwin' ]; then
     eval `/opt/local/bin/dircolors -b`
     alias ls='/opt/local/bin/ls --color=auto --classify'
 fi
