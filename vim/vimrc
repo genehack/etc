@@ -3,3 +3,4 @@ syntax on
 colorscheme advantage
 
 autocmd BufWritePre *.pl,*.pm :%s/\s\+$//e
+au BufNewFile,BufRead *.yaml,*.yml,*.pg so ~/.vim/yaml.vim
