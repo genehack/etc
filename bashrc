@@ -1,10 +1,5 @@
 # -*- sh -*-
 
-if [ $TERM = 'dumb' ]; then
-    export PS1='$ ';
-    return;
-fi
-
 if [ -f /etc/bashrc ]; then . /etc/bashrc; fi
 
 OS=`uname`
