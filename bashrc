@@ -1,10 +1,5 @@
 # -*- sh -*-
 
-if [ $TERM = 'dumb' ]; then
-    export PS1='$ ';
-    return;
-fi
-
 if [ -f /etc/bashrc ]; then . /etc/bashrc; fi
 
 OS=`uname`
@@ -22,7 +17,7 @@ else
     export HOSTNAME=`hostname`
     export DOMAIN=`hostname -d`
     export FULL_HOSTNAME=`hostname -f`
-    export TERM=xterm-256color
+    if [ $TERM != 'dumb' ]; then export TERM=xterm-256color; fi
 fi
 
 
