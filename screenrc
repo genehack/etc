@@ -2,9 +2,6 @@ shell -bash
 startup_message off
 
 screen -t TOP     0 top
-screen -t emacs   1 emacs -nw
-screen -t sh      2 start-amylase
-screen -t sh      3 bash
 
 hardstatus alwayslastline "%{.kY} <%H> %{.bW} %-w%{.rW}%n %t%{-}%+w %=%{.kR} [%l] %{.kw} %D %d %M %Y %c:%s"
 
