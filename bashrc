@@ -13,10 +13,16 @@ if [ $OS_TYPE = 'darwin' -o $OS_TYPE = 'freebsd' ]; then
     export HOSTNAME=`/bin/hostname -s`
     export DOMAIN=`/bin/hostname | cut -f2- -d.`
     export FULL_HOSTNAME=`/bin/hostname`
+    if [ $OS_TYPE = 'darwin' ]; then
+        EMACS='/Applications/Emacs.app/Contents/MacOS/Emacs'
+        EMACSCLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+    fi
 else
     export HOSTNAME=`hostname`
     export DOMAIN=`hostname -d`
     export FULL_HOSTNAME=`hostname -f`
+    EMACS=`which emacs`
+    EMACSCLIENT=`which emacsclient`
     if [ $TERM != 'dumb' ]; then export TERM=xterm-256color; fi
 fi
 
@@ -27,15 +33,9 @@ if [ -e /etc/bash_completion ]; then . /etc/bash_completion; fi
 
 if [ -e $HOME/.aliases ]; then . $HOME/.aliases; fi
 
-if [ $GENEHACK_LOCATION = 'WORK' ]; then
-    export EDITOR="$HOME/local/bin/emacsclient -t"
-    export GIT_EDITOR="$HOME/local/bin/emacsclient -t"
-    export VISUAL="$HOME/local/bin/emacsclient -t"
-else
-    export EDITOR=/opt/emacs/bin/emacsclient
-    export GIT_EDITOR=vim
-    export VISUAL=/opt/emacs/bin/emacsclient
-fi
+export EDITOR="$EMACSCLIENT -t"
+export GIT_EDITOR="$EMACSCLIENT -t"
+export VISUAL="$EMACSCLIENT -t"
 
 if [ -d /opt/local/bin ]; then
     export PATH=/opt/local/bin:$PATH
