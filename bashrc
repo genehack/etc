@@ -13,16 +13,10 @@ if [ $OS_TYPE = 'darwin' -o $OS_TYPE = 'freebsd' ]; then
     export HOSTNAME=`/bin/hostname -s`
     export DOMAIN=`/bin/hostname | cut -f2- -d.`
     export FULL_HOSTNAME=`/bin/hostname`
-    if [ $OS_TYPE = 'darwin' ]; then
-        EMACS='/Applications/Emacs.app/Contents/MacOS/Emacs'
-        EMACSCLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
-    fi
 else
     export HOSTNAME=`hostname`
     export DOMAIN=`hostname -d`
     export FULL_HOSTNAME=`hostname -f`
-    EMACS=`which emacs`
-    EMACSCLIENT=`which emacsclient`
     if [ $TERM != 'dumb' ]; then export TERM=xterm-256color; fi
 fi
 
@@ -32,10 +26,6 @@ if [ -e $HOME/.bash_private ]; then . $HOME/.bash_private; fi
 if [ -e /etc/bash_completion ]; then . /etc/bash_completion; fi
 
 if [ -e $HOME/.aliases ]; then . $HOME/.aliases; fi
-
-export EDITOR="$EMACSCLIENT -t"
-export GIT_EDITOR="$EMACSCLIENT -t"
-export VISUAL="$EMACSCLIENT -t"
 
 if [ -d /opt/local/bin ]; then
     export PATH=/opt/local/bin:$PATH
@@ -59,6 +49,18 @@ if [ -e $HOME/local/man ]; then export MANPATH=$HOME/local/man:$MANPATH; fi
 
 if [ -e $HOME/bin ]; then export PATH=$HOME/bin:$PATH; fi
 if [ -e $HOME/man ]; then export MANPATH=$HOME/man:$MANPATH; fi
+
+if [ $OS_TYPE = 'darwin' ]; then
+    EMACS='/Applications/Emacs.app/Contents/MacOS/Emacs'
+    EMACSCLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+else
+    EMACS=`which emacs`
+    EMACSCLIENT=`which emacsclient`
+fi
+
+export EDITOR="$EMACSCLIENT -t"
+export GIT_EDITOR="$EMACSCLIENT -t"
+export VISUAL="$EMACSCLIENT -t"
 
 ## KEYCHAIN 
 if shopt -q login_shell ; then
