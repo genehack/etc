@@ -29,7 +29,25 @@ fi
 
 if [ -e $HOME/.bash_private ]; then . $HOME/.bash_private; fi
 
-if [ -e /etc/bash_completion ]; then . /etc/bash_completion; fi
+set_up_bash_completion () {
+    # Check for bash (and that we haven't already been sourced).
+    [ -z "$BASH_VERSION" -o -n "$BASH_COMPLETION" ] && return;
+
+    # Check for recent enough version of bash.
+    bash=${BASH_VERSION%.*}; bmajor=${bash%.*}; bminor=${bash#*.}
+
+    if [ -n "$PS1" ]; then
+        if [ $bmajor -eq 2 -a $bminor '>' 04 ] || [ $bmajor -gt 2 ]; then
+            if [ -e /etc/bash_completion ]; then
+                . /etc/bash_completion;
+            elif [ -e $HOME/etc/bash_completion ]; then
+                . $HOME/etc/bash_completion;
+            fi
+        fi
+    fi
+}
+
+set_up_bash_completion;
 
 if [ -e $HOME/.aliases ]; then . $HOME/.aliases; fi
 
