@@ -76,9 +76,10 @@ else
     EMACSCLIENT=`which emacsclient`
 fi
 
-export EDITOR="$EMACSCLIENT -t -a $EMACS"
-export GIT_EDITOR="$EMACSCLIENT -t -a $EMACS"
-export VISUAL="$EMACSCLIENT -t -a $EMACS"
+export ALTERNATE_EDITOR=""
+export EDITOR="$EMACSCLIENT -t"
+export GIT_EDITOR="$EMACSCLIENT -t"
+export VISUAL="$EMACSCLIENT -t -a"
 
 ## KEYCHAIN 
 if shopt -q login_shell ; then
