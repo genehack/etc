@@ -13,6 +13,8 @@ if [ $OS_TYPE = 'darwin' -o $OS_TYPE = 'freebsd' ]; then
     export HOSTNAME=`/bin/hostname -s`
     export DOMAIN=`/bin/hostname | cut -f2- -d.`
     export FULL_HOSTNAME=`/bin/hostname`
+    # work around for Snow Leopard xterm bug <http://discussions.apple.com/thread.jspa?threadID=2148278&tstart=0>
+    resize >& /dev/null
 else
     export HOSTNAME=`hostname`
     export DOMAIN=`hostname -d`
