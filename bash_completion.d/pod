@@ -1,0 +1,2 @@
+alias pod=perldoc
+complete -C perldoc-complete pod
