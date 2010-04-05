@@ -51,7 +51,10 @@ if [ -d /opt/local/bin ]; then
     export PATH=/opt/local/bin:$PATH
 fi
 
-if [ -e /opt/local/perl/bin ];    then export PATH=/opt/local/perl/bin:$PATH
+if [ -e /opt/perl/etc/bashrc ]; then
+    export PERLBREW_ROOT=/opt/perl
+    source $PERLBREW_ROOT/etc/bashrc
+elif [ -e /opt/local/perl/bin ];  then export PATH=/opt/local/perl/bin:$PATH
 elif [ -e /opt/perl/bin ];        then export PATH=/opt/perl/bin:$PATH
 elif [ -e /opt/perl/5.10.0/bin ]; then export PATH=/opt/perl/5.10.0/bin:$PATH
 elif [ -e /opt/perl/5.8.8/bin ];  then export PATH=/opt/perl/5.8.8/bin:$PATH
