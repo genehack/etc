@@ -10,6 +10,7 @@ for i in           \
     bash_logout    \
     bash_profile   \
     bashrc         \
+    perltidyrc     \
     screenrc       \
 ; do
     ln -sfv ~/etc/$i ~/.$i
