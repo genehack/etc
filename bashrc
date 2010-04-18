@@ -73,6 +73,11 @@ if [ -e $HOME/local/man ]; then export MANPATH=$HOME/local/man:$MANPATH; fi
 if [ -e $HOME/bin ]; then export PATH=$HOME/bin:$PATH; fi
 if [ -e $HOME/man ]; then export MANPATH=$HOME/man:$MANPATH; fi
 
+if [ -e $HOME/proj/git-achievements ]; then
+    export PATH="$PATH:~/proj/git-achievements"
+    alias git="git-achievements"
+fi
+
 if [ $OS_TYPE = 'darwin' ]; then
     EMACS='/Applications/Emacs.app/Contents/MacOS/Emacs'
     EMACSCLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
