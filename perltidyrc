@@ -1,0 +1,6 @@
+--backup-and-modify-in-place
+--warning-output
+--indent-columns=2
+--stack-opening-tokens
+--stack-closing-tokens
+--freeze-blank-lines
