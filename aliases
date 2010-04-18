@@ -1,6 +1,5 @@
 # -*- sh -*-
 
-
 if [ $OS_TYPE = 'linux' ]; then
     eval `dircolors -b`
     alias ls='/bin/ls --color=auto --classify'
@@ -10,9 +9,7 @@ elif [ $OS_TYPE = 'darwin' ]; then
 fi
 
 alias cp="cp -i"
-alias find-common='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 25'
+alias find-common="history | awk {'print \$2'} | sort | uniq -c | sort -k1 -nr | head -n 25"
 alias grep='grep --color=auto'
 alias mv="mv -i"
 alias rm="rm -i"
-
-
