@@ -88,19 +88,6 @@ export EDITOR="$EMACSCLIENT -t"
 export GIT_EDITOR="$EMACSCLIENT -t"
 export VISUAL="$EMACSCLIENT -t -a"
 
-JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
-if [ -e $JAVA_HOME ]; then
-    export JAVA_HOME
-    export ANT_HOME=/usr/share/ant
-    export MAVEN_HOME=/usr/share/maven
-    export JUNIT_HOME=/usr/share/junit
-    GROOVY_HOME=/usr/share/groovy
-    if [ -e $GROOVY_HOME ]; then
-        export GROOVY_HOME
-        export PATH=$PATH:$GROOVY_HOME/bin
-    fi
-fi
-
 ## KEYCHAIN 
 if shopt -q login_shell ; then
     `which keychain 2>&1 >/dev/null`
