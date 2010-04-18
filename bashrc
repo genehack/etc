@@ -58,8 +58,7 @@ elif [ -e /opt/perl/bin ]; then
     export PATH=/opt/perl/bin:$PATH
 fi
 
-
-for PKG in awesome emacs git subversion ; do
+for PKG in emacs git subversion ImageMagick ; do
     if [ -e /opt/$PKG ]; then
         export PATH=/opt/$PKG/bin:$PATH
     fi
