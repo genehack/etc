@@ -13,3 +13,5 @@ alias find-common="history | awk {'print \$2'} | sort | uniq -c | sort -k1 -nr |
 alias grep='grep --color=auto'
 alias mv="mv -i"
 alias rm="rm -i"
+
+alias prune="git prune"
