@@ -67,8 +67,8 @@ pathadd "/opt/local/bin" "fore"
 
 if [ -e /opt/perl/etc/bashrc ]; then
     export PERLBREW_ROOT=/opt/perl
-    pathadd "/opt/perl/bin"
-    pathadd "/opt/perl/perls/current/bin"
+    pathadd "/opt/perl/perls/current/bin" "fore"
+    pathadd "/opt/perl/bin" "fore"
 elif [ -e /opt/perl/bin ]; then
     pathadd "/opt/perl/bin"
 fi
