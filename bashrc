@@ -15,6 +15,9 @@ if [ $OS_TYPE = 'darwin' -o $OS_TYPE = 'freebsd' ]; then
     export FULL_HOSTNAME=`/bin/hostname`
     # work around for Snow Leopard xterm bug <http://discussions.apple.com/thread.jspa?threadID=2148278&tstart=0>
     resize >& /dev/null
+
+    # there's some oddness with the default PATH on macs...
+    PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 else
     export HOSTNAME=`hostname`
     export DOMAIN=`hostname -d`
@@ -24,6 +27,17 @@ fi
 
 
 if [ -e $HOME/.bash_private ]; then . $HOME/.bash_private; fi
+
+# ganked from http://superuser.com/questions/39751/
+pathadd() {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        if [ "$2" ] && [ "$2" == "fore" ]; then
+            PATH="$1:$PATH"
+        else
+            PATH="$PATH:$1"
+        fi
+    fi
+}
 
 set_up_bash_completion () {
     # Check for bash (and that we haven't already been sourced).
@@ -47,31 +61,28 @@ set_up_bash_completion;
 
 if [ -e $HOME/.aliases ]; then . $HOME/.aliases; fi
 
-if [ -d /opt/local/bin ]; then
-    export PATH=/opt/local/bin:$PATH
-fi
+pathadd "/opt/local/bin" "fore"
 
 if [ -e /opt/perl/etc/bashrc ]; then
     export PERLBREW_ROOT=/opt/perl
-    source $PERLBREW_ROOT/etc/bashrc
+    pathadd "/opt/perl/bin"
+    pathadd "/opt/perl/perls/current/bin"
 elif [ -e /opt/perl/bin ]; then
-    export PATH=/opt/perl/bin:$PATH
+    pathadd "/opt/perl/bin"
 fi
 
 for PKG in emacs git subversion ImageMagick ; do
-    if [ -e /opt/$PKG ]; then
-        export PATH=/opt/$PKG/bin:$PATH
-    fi
+    pathadd "/opt/$PKG/bin"
 done
 
-if [ -e $HOME/local/bin ]; then export PATH=$HOME/local/bin:$PATH; fi
-if [ -e $HOME/local/man ]; then export MANPATH=$HOME/local/man:$MANPATH; fi
+pathadd "$HOME/local/bin"
+if [ -e $HOME/local/man ]; then MANPATH=$HOME/local/man:$MANPATH; fi
 
-if [ -e $HOME/bin ]; then export PATH=$HOME/bin:$PATH; fi
-if [ -e $HOME/man ]; then export MANPATH=$HOME/man:$MANPATH; fi
+pathadd "$HOME/bin" "fore"
+if [ -e $HOME/man ]; then MANPATH=$HOME/man:$MANPATH; fi
 
 if [ -e $HOME/proj/git-achievements ]; then
-    export PATH="$PATH:~/proj/git-achievements"
+    pathadd "$HOME/proj/git-achievements"
     alias git="git-achievements"
 fi
 
