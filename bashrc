@@ -13,7 +13,9 @@ if [ $OS_TYPE = 'darwin' -o $OS_TYPE = 'freebsd' ]; then
     export HOSTNAME=`/bin/hostname -s`
     export DOMAIN=`/bin/hostname | cut -f2- -d.`
     export FULL_HOSTNAME=`/bin/hostname`
-    # work around for Snow Leopard xterm bug <http://discussions.apple.com/thread.jspa?threadID=2148278&tstart=0>
+
+    # work around for Snow Leopard xterm bug
+    # <http://discussions.apple.com/thread.jspa?threadID=2148278&tstart=0>
     resize >& /dev/null
 
     # there's some oddness with the default PATH on macs...
@@ -99,7 +101,7 @@ export EDITOR="$EMACSCLIENT -t"
 export GIT_EDITOR="$EMACSCLIENT -t"
 export VISUAL="$EMACSCLIENT -t -a"
 
-## KEYCHAIN 
+## KEYCHAIN
 if shopt -q login_shell ; then
     `which keychain 2>&1 >/dev/null`
     if [ $? = 0 ]; then
@@ -169,16 +171,16 @@ setprompt() {
   else
       load=""
   fi
-  
+
   P3=""
-  if [ $load ]; then 
+  if [ $load ]; then
       if [ ${load%.*} -ge 2 ]; then
 	  P3="[$(color red white)$load$(color off)]"
       else
 	  P3="[$(color ltblue)$load$(color off)]"
       fi
   fi
-    
+
   P4="-$(color red)\$?$(color off)-"
 
   # this next bit also ganked from http://muness.blogspot.com/2008/06/stop-presses-bash-said-to-embrace.html
@@ -203,7 +205,7 @@ setprompt() {
 
 if [ $TERM = 'dumb' ]; then
     PS1='$ '
-else 
+else
     PROMPT_COMMAND=setprompt
 fi
 
