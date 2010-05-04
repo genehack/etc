@@ -14,4 +14,4 @@ alias grep='grep --color=auto'
 alias mv="mv -i"
 alias rm="rm -i"
 
-alias prune="git prune"
+alias prune="git remote prune origin"
