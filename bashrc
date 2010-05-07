@@ -19,7 +19,7 @@ if [ $OS_TYPE = 'darwin' -o $OS_TYPE = 'freebsd' ]; then
     resize >& /dev/null
 
     # there's some oddness with the default PATH on macs...
-    PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+    PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
 else
     export HOSTNAME=`hostname`
     export DOMAIN=`hostname -d`
