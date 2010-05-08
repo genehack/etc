@@ -70,11 +70,11 @@ if [ -e /opt/perl/etc/bashrc ]; then
     pathadd "/opt/perl/perls/current/bin" "fore"
     pathadd "/opt/perl/bin" "fore"
 elif [ -e /opt/perl/bin ]; then
-    pathadd "/opt/perl/bin"
+    pathadd "/opt/perl/bin" "fore"
 fi
 
 for PKG in emacs git subversion ImageMagick ; do
-    pathadd "/opt/$PKG/bin"
+    pathadd "/opt/$PKG/bin" "fore"
 done
 
 pathadd "$HOME/local/bin"
