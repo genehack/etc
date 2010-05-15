@@ -88,6 +88,11 @@ elif [ -e /opt/perl/bin ]; then
     pathadd "/opt/perl/bin" "fore"
 fi
 
+export PERL_CPANM_OPT="--skip-installed --prompt"
+if [ -e /opt/minicpan/ ]; then
+    export PERL_CPANM_OPT="$PERL_CPANM_OPT --mirror file:///opt/minicpan";
+fi
+
 if [ $OS_TYPE = 'darwin' ]; then
     EMACS='/Applications/Emacs.app/Contents/MacOS/Emacs'
     EMACSCLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
