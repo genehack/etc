@@ -65,14 +65,6 @@ if [ -e $HOME/.aliases ]; then . $HOME/.aliases; fi
 
 pathadd "/opt/local/bin" "fore"
 
-if [ -e /opt/perl/etc/bashrc ]; then
-    export PERLBREW_ROOT=/opt/perl
-    pathadd "/opt/perl/perls/current/bin" "fore"
-    pathadd "/opt/perl/bin" "fore"
-elif [ -e /opt/perl/bin ]; then
-    pathadd "/opt/perl/bin" "fore"
-fi
-
 for PKG in emacs git subversion ImageMagick ; do
     pathadd "/opt/$PKG/bin" "fore"
 done
@@ -86,6 +78,14 @@ if [ -e $HOME/man ]; then MANPATH=$HOME/man:$MANPATH; fi
 if [ -e $HOME/proj/git-achievements ]; then
     pathadd "$HOME/proj/git-achievements"
     alias git="git-achievements"
+fi
+
+if [ -e /opt/perl/etc/bashrc ]; then
+    export PERLBREW_ROOT=/opt/perl
+    pathadd "/opt/perl/perls/current/bin" "fore"
+    pathadd "/opt/perl/bin" "fore"
+elif [ -e /opt/perl/bin ]; then
+    pathadd "/opt/perl/bin" "fore"
 fi
 
 if [ $OS_TYPE = 'darwin' ]; then
