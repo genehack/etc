@@ -10,6 +10,7 @@ for i in           \
     bash_logout    \
     bash_profile   \
     bashrc         \
+    dzil           \
     perltidyrc     \
     screenrc       \
 ; do
