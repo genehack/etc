@@ -13,3 +13,6 @@ alias find-common="history | awk {'print \$2'} | sort | uniq -c | sort -k1 -nr |
 alias grep='grep --color=auto'
 alias mv="mv -i"
 alias rm="rm -i"
+
+alias prune="git remote prune origin"
+alias list_installed_perl_modules="perl -MExtUtils::Installed -E 'say for ExtUtils::Installed->new->modules'"
