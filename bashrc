@@ -13,8 +13,13 @@ if [ $OS_TYPE = 'darwin' -o $OS_TYPE = 'freebsd' ]; then
     export HOSTNAME=`/bin/hostname -s`
     export DOMAIN=`/bin/hostname | cut -f2- -d.`
     export FULL_HOSTNAME=`/bin/hostname`
-    # work around for Snow Leopard xterm bug <http://discussions.apple.com/thread.jspa?threadID=2148278&tstart=0>
+
+    # work around for Snow Leopard xterm bug
+    # <http://discussions.apple.com/thread.jspa?threadID=2148278&tstart=0>
     resize >& /dev/null
+
+    # there's some oddness with the default PATH on macs...
+    PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
 else
     export HOSTNAME=`hostname`
     export DOMAIN=`hostname -d`
@@ -24,6 +29,17 @@ fi
 
 
 if [ -e $HOME/.bash_private ]; then . $HOME/.bash_private; fi
+
+# ganked from http://superuser.com/questions/39751/
+pathadd() {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        if [ "$2" ] && [ "$2" == "fore" ]; then
+            PATH="$1:$PATH"
+        else
+            PATH="$PATH:$1"
+        fi
+    fi
+}
 
 set_up_bash_completion () {
     # Check for bash (and that we haven't already been sourced).
@@ -47,32 +63,34 @@ set_up_bash_completion;
 
 if [ -e $HOME/.aliases ]; then . $HOME/.aliases; fi
 
-if [ -d /opt/local/bin ]; then
-    export PATH=/opt/local/bin:$PATH
+pathadd "/opt/local/bin" "fore"
+
+for PKG in emacs git subversion ImageMagick ; do
+    pathadd "/opt/$PKG/bin" "fore"
+done
+
+pathadd "$HOME/local/bin"
+if [ -e $HOME/local/man ]; then MANPATH=$HOME/local/man:$MANPATH; fi
+
+pathadd "$HOME/bin" "fore"
+if [ -e $HOME/man ]; then MANPATH=$HOME/man:$MANPATH; fi
+
+if [ -e $HOME/proj/git-achievements ]; then
+    pathadd "$HOME/proj/git-achievements"
+    alias git="git-achievements"
 fi
 
 if [ -e /opt/perl/etc/bashrc ]; then
     export PERLBREW_ROOT=/opt/perl
-    source $PERLBREW_ROOT/etc/bashrc
+    pathadd "/opt/perl/perls/current/bin" "fore"
+    pathadd "/opt/perl/bin" "fore"
 elif [ -e /opt/perl/bin ]; then
-    export PATH=/opt/perl/bin:$PATH
+    pathadd "/opt/perl/bin" "fore"
 fi
 
-for PKG in emacs git subversion ImageMagick ; do
-    if [ -e /opt/$PKG ]; then
-        export PATH=/opt/$PKG/bin:$PATH
-    fi
-done
-
-if [ -e $HOME/local/bin ]; then export PATH=$HOME/local/bin:$PATH; fi
-if [ -e $HOME/local/man ]; then export MANPATH=$HOME/local/man:$MANPATH; fi
-
-if [ -e $HOME/bin ]; then export PATH=$HOME/bin:$PATH; fi
-if [ -e $HOME/man ]; then export MANPATH=$HOME/man:$MANPATH; fi
-
-if [ -e $HOME/proj/git-achievements ]; then
-    export PATH="$PATH:~/proj/git-achievements"
-    alias git="git-achievements"
+export PERL_CPANM_OPT="--skip-installed --prompt"
+if [ -e /opt/minicpan/ ]; then
+    export PERL_CPANM_OPT="$PERL_CPANM_OPT --mirror file:///opt/minicpan";
 fi
 
 if [ $OS_TYPE = 'darwin' ]; then
@@ -88,7 +106,7 @@ export EDITOR="$EMACSCLIENT -t"
 export GIT_EDITOR="$EMACSCLIENT -t"
 export VISUAL="$EMACSCLIENT -t -a"
 
-## KEYCHAIN 
+## KEYCHAIN
 if shopt -q login_shell ; then
     `which keychain 2>&1 >/dev/null`
     if [ $? = 0 ]; then
@@ -158,16 +176,16 @@ setprompt() {
   else
       load=""
   fi
-  
+
   P3=""
-  if [ $load ]; then 
+  if [ $load ]; then
       if [ ${load%.*} -ge 2 ]; then
 	  P3="[$(color red white)$load$(color off)]"
       else
 	  P3="[$(color ltblue)$load$(color off)]"
       fi
   fi
-    
+
   P4="-$(color red)\$?$(color off)-"
 
   # this next bit also ganked from http://muness.blogspot.com/2008/06/stop-presses-bash-said-to-embrace.html
@@ -192,7 +210,7 @@ setprompt() {
 
 if [ $TERM = 'dumb' ]; then
     PS1='$ '
-else 
+else
     PROMPT_COMMAND=setprompt
 fi
 
