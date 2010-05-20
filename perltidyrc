@@ -4,3 +4,6 @@
 --stack-opening-tokens
 --stack-closing-tokens
 --freeze-blank-lines
+--maximum-line-length=78
+--opening-token-right
+--opening-brace-always-on-right
