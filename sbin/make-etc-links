@@ -10,7 +10,6 @@ for i in           \
     bash_logout    \
     bash_profile   \
     bashrc         \
-    dzil           \
     perltidyrc     \
     screenrc       \
 ; do
@@ -21,11 +20,6 @@ if [ $OS_TYPE != "darwin" ]; then
     ln -sfv ~/etc/xinitrc ~/.xinitrc
 fi
 
-if [ -e /opt/awesome ]; then
-    mkdir -p ~/.config/awesome
-    ln -sfv ~/etc/awesome/rc.lua ~/.config/awesome/
-fi
-
 echo 
 
 rm -f ~/.vim
@@ -34,3 +28,7 @@ ln -sfv ~/etc/vim                ~/.vim
 
 echo
 
+rm -f ~/.dzil
+ln -sfv ~/etc/dzil ~/.dzil
+
+echo
