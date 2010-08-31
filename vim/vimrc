@@ -1,4 +1,9 @@
 set nocompatible
+set autoread
+
+set incsearch
+set smartcase
+
 syntax on
 colorscheme advantage
 
