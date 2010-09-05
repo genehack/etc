@@ -12,6 +12,7 @@ for i in           \
     bashrc         \
     perltidyrc     \
     screenrc       \
+    vimrc          \
 ; do
     ln -sfv ~/etc/$i ~/.$i
 done
@@ -23,7 +24,6 @@ fi
 echo 
 
 rm -f ~/.vim
-ln -sfv ~/etc/vim/vimrc          ~/.vimrc
 ln -sfv ~/etc/vim                ~/.vim
 
 echo
