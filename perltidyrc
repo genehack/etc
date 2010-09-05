@@ -1,4 +1,5 @@
 --backup-and-modify-in-place
+--standard-error-output
 --warning-output
 --indent-columns=2
 --stack-opening-tokens

@@ -65,7 +65,7 @@ if [ -e $HOME/.aliases ]; then . $HOME/.aliases; fi
 
 pathadd "/opt/local/bin" "fore"
 
-for PKG in emacs git subversion ImageMagick ; do
+for PKG in emacs git subversion ImageMagick vim; do
     pathadd "/opt/$PKG/bin" "fore"
 done
 
