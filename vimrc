@@ -79,3 +79,15 @@ let $VIMRC = "$HOME/.vimrc"
 map ,v :tabe $VIMRC<CR>
 map <silent> ,V :source $VIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
+" http://vim.wikia.com/wiki/VimTip306
+function! HandleURI()
+  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
+  echo s:uri
+  if s:uri != ""
+	  exec "!open \"" . s:uri . "\""
+  else
+	  echo "No URI found in line."
+  endif
+endfunction
+map <Leader>w :call HandleURI()<CR>
+
