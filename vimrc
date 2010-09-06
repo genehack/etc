@@ -74,3 +74,8 @@ set tags+=~/.ptags
 " highlight lines longer than 80 chars in perl files
 autocmd FileType perl match ErrorMsg '\%>80v.\+'
 
+" modified from http://groups.google.com/group/vim-perl/browse_thread/thread/41bf2594911b3f51
+let $VIMRC = "$HOME/.vimrc"
+map ,v :tabe $VIMRC<CR>
+map <silent> ,V :source $VIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
