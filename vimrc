@@ -70,3 +70,7 @@ EOS
 autocmd FileType perl :perl FindIndent()
 
 set tags+=~/.ptags
+
+" highlight lines longer than 80 chars in perl files
+autocmd FileType perl match ErrorMsg '\%>80v.\+'
+
