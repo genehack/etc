@@ -12,7 +12,6 @@ for i in           \
     bashrc         \
     perltidyrc     \
     screenrc       \
-    vimrc          \
 ; do
     ln -sfv ~/etc/$i ~/.$i
 done
@@ -22,11 +21,6 @@ if [ $OS_TYPE != "darwin" ]; then
 fi
 
 echo 
-
-rm -f ~/.vim
-ln -sfv ~/etc/vim                ~/.vim
-
-echo
 
 rm -f ~/.dzil
 ln -sfv ~/etc/dzil ~/.dzil
