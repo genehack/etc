@@ -1,20 +1,25 @@
 " General options
-set nocompatible
-set wrap
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-set autoindent
+set nocompatible      " vim should be vim
+set wrap              " softwrap text
+set softtabstop=2     " 2 space tabs!
+set shiftwidth=2      " we mean it!
+set expandtab         " and spaces only!
+set number            " show linenumbers
+set autowrite         " autosave, most times
+set autoread          " autoread
+set encoding=utf-8    " it's a UTF-8 world
+set ruler             " show line/col in status line
+set showcmd           " show partial command in status line
+set smarttab          " be smart about <TAB> at BOL
+set fileformats=unix,mac,dos
+set history=5000
+set hlsearch
+set incsearch
+set showmatch
+
+
+set autoindent       " indent
 set smartindent
-set number
-set autowrite
-set autoread
-set encoding=utf-8
-set ruler
-set showmode
-set showcmd
-
-
 filetype indent plugin on
 
 " colors
@@ -74,6 +79,10 @@ set tags+=~/.ptags
 " highlight lines longer than 80 chars in perl files
 autocmd FileType perl match ErrorMsg '\%>80v.\+'
 
+" automatically source the .vimrc file if I change it
+" the bang (!) forces it to overwrite this command rather than stack it
+au! BufWritePost .vimrc source %
+
 " modified from http://groups.google.com/group/vim-perl/browse_thread/thread/41bf2594911b3f51
 let $VIMRC = "$HOME/.vimrc"
 map ,v :tabe $VIMRC<CR>
@@ -91,3 +100,29 @@ function! HandleURI()
 endfunction
 map <Leader>w :call HandleURI()<CR>
 
+" Use the below highlight group when displaying bad whitespace is desired.
+highlight BadWhitespace ctermbg=red guibg=red
+
+" Make trailing whitespace be flagged as bad.
+au BufRead,BufNewFile *.p?,*.t match BadWhitespace /\s\+$/
+
+au BufNewFile *.p?,*.t set fileformat=unix
+
+let perl_include_pod=1
+let perl_extended_vars=1
+let perl_want_scope_in_variables=1
+
+function! InsertTabWrapper()
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<Tab>"
+  else
+    return "\<C-O>"
+  endif
+endfunction
+inoremap <tab> <C-X><C-R>=InsertTabWrapper()<CR>
+
+" save keystrokes on the Perl shebang
+iabbrev #!p #!/opt/perl/bin/perl<C-M><BS><C-M>use strict;<C-M>use warnings;<C-M><ESC>:filetype detect<C-M>i
+
+map <F9> :wincmd gf<CR>
