@@ -16,3 +16,6 @@ alias rm="rm -i"
 
 alias prune="git remote prune origin"
 alias list_installed_perl_modules="perl -MExtUtils::Installed -E 'say for ExtUtils::Installed->new->modules'"
+
+alias vi="vim"
+alias view="vim -R"
