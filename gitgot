@@ -83,7 +83,7 @@
   path: /Users/genehack/proj/genehack
   repo: genehack.net:/var/git/private/genehack
   type: git
-- name: genehack-vim
+- name: vim
   path: /Users/genehack/proj/vim
   repo: git@github.com:genehack/genehack-vim.git
   type: git
