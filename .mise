@@ -7,6 +7,5 @@ create:
     - bash_profile: ~/.bash_profile
     - bashrc: ~/.bashrc
     - dzil: ~/.dzil
-    - gitgot: ~/.gitgot
     - perltidyrc: ~/.perltidyrc
     - screenrc: ~/.screenrc
