@@ -1,0 +1,11 @@
+---
+create:
+  links:
+    - Xmodmap: ~/.Xmodmap
+    - aliases: ~/.aliases
+    - bash_logout: ~/.bash_logout
+    - bash_profile: ~/.bash_profile
+    - bashrc: ~/.bashrc
+    - dzil: ~/.dzil
+    - perltidyrc: ~/.perltidyrc
+    - screenrc: ~/.screenrc
