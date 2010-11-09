@@ -8,5 +8,6 @@ create:
     - bashrc: ~/.bashrc
     - dzil: ~/.dzil
     - gitgot: ~/.gitgot
+    - mise: ~/.mise
     - perltidyrc: ~/.perltidyrc
     - screenrc: ~/.screenrc

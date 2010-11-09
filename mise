@@ -1,0 +1,19 @@
+---
+manage:
+  - doc
+  - etc
+  - private
+  - proj/*
+  - src
+create:
+  directories:
+    - bin
+    - doc
+    - etc
+    - lib
+    - private
+    - proj
+    - src
+    - var/tmp
+  links:
+    - var/tmp: tmp
