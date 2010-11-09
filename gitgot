@@ -83,10 +83,6 @@
   path: /Users/genehack/proj/genehack
   repo: genehack.net:/var/git/private/genehack
   type: git
-- name: vim
-  path: /Users/genehack/proj/vim
-  repo: git@github.com:genehack/genehack-vim.git
-  type: git
 - name: genehack.org
   path: /Users/genehack/proj/genehack.org
   repo: genehack.net:/var/git/private/genehack.org
@@ -141,6 +137,10 @@
 - name: svnhome-maint
   path: /Users/genehack/proj/svnhome-maint
   repo: genehack.net:/var/git/public/svnhome-maint.git
+  type: git
+- name: vim
+  path: /Users/genehack/proj/vim
+  repo: git@github.com:genehack/genehack-vim.git
   type: git
 - name: xterm-scripts
   path: /Users/genehack/proj/xterm-scripts
