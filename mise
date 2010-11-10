@@ -4,7 +4,7 @@ manage:
   - etc
   - private
   - proj/*
-  - src
+  - src/*
 create:
   directories:
     - bin
