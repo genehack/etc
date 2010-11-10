@@ -24,7 +24,7 @@ else
     export HOSTNAME=`hostname`
     export DOMAIN=`hostname -d`
     export FULL_HOSTNAME=`hostname -f`
-    if [ $TERM != 'dumb' ]; then export TERM=xterm-256color; fi
+    if [ $TERM != 'dumb' ]; then export TERM=xterm; fi
 fi
 
 
