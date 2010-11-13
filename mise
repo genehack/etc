@@ -14,6 +14,7 @@ create:
     - private
     - proj
     - src
-    - var/tmp
+    - var
   links:
-    - var/tmp: tmp
+    - Desktop: var/tmp
+    - Desktop: tmp
