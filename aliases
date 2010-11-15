@@ -19,3 +19,5 @@ alias list_installed_perl_modules="perl -MExtUtils::Installed -E 'say for ExtUti
 
 alias vi="vim"
 alias view="vim -R"
+
+alias upgrade_cpan_modules="cpan-outdated --mirror file:///opt/minicpan | cpanm --mirror file:///opt/minicpan --mirror-only"

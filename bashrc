@@ -89,9 +89,6 @@ elif [ -e /opt/perl/bin ]; then
 fi
 
 export PERL_CPANM_OPT="--skip-installed --prompt"
-if [ -e /opt/minicpan/ ]; then
-    export PERL_CPANM_OPT="$PERL_CPANM_OPT --mirror file:///opt/minicpan --mirror-only";
-fi
 
 if [ $OS_TYPE = 'darwin' ]; then
     EMACS='/Applications/Emacs.app/Contents/MacOS/Emacs'
