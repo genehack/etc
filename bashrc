@@ -169,7 +169,7 @@ setprompt() {
   local load etc vcs base_dir sub_dir ref last_command
 
   P1="{$(color yellow)\T$(color off)}"
-  P2="($(color green)\h$(color off))"
+  P2="($(color green)$HOSTNAME$(color off))"
 
   if [ -e /proc/loadavg ]; then
       load=( $(</proc/loadavg) )
