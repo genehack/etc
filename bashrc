@@ -81,9 +81,7 @@ if [ -e $HOME/proj/git-achievements ]; then
 fi
 
 if [ -e /opt/perl/etc/bashrc ]; then
-    export PERLBREW_ROOT=/opt/perl
-    pathadd "/opt/perl/perls/current/bin" "fore"
-    pathadd "/opt/perl/bin" "fore"
+    source /opt/perl/etc/bashrc
 elif [ -e /opt/perl/bin ]; then
     pathadd "/opt/perl/bin" "fore"
 fi
