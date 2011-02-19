@@ -91,6 +91,11 @@ fi
 
 export PERL_CPANM_OPT="--skip-installed --prompt"
 
+# bashcomp for cpanm (<http://blog.netcubed.de/2011/02/bash-completion-for-cpanm-and-cpanf/>)
+if [ $(which setup-bash-complete) ]; then
+    source setup-bash-complete
+fi
+
 if [ $OS_TYPE = 'darwin' ]; then
     EMACS='/Applications/Emacs.app/Contents/MacOS/Emacs'
     EMACSCLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
