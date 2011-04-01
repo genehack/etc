@@ -60,6 +60,11 @@ set_up_bash_completion () {
 }
 
 set_up_bash_completion;
+if [ -d $HOME/etc/bash_completion.d ]; then
+    for i in `ls $HOME/etc/bash_completion.d`; do
+        source $HOME/etc/bash_completion.d/$i
+    done
+fi
 
 if [ -e $HOME/.aliases ]; then . $HOME/.aliases; fi
 
