@@ -252,3 +252,22 @@ working-screen() {
         $SCREEN $SCREEN_OPTS
     fi
 }
+
+v() {
+  mod_file="lib/${1//:://}.pm"
+  if [ -f $mod_file ]; then
+    command vim $mod_file
+  else
+    mod_file="t/$mod_file"
+    if [ -f $mod_file ]; then
+      command vim $mod_file
+    else
+      mod_file=$(perldoc -l $1 | sed 's/pod$/pm/')
+      if [ -f $mod_file ]; then
+        command vim $mod_file
+      else
+        command vim $@
+      fi
+    fi
+  fi
+}
