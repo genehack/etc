@@ -6,6 +6,7 @@ create:
     - bash_logout: ~/.bash_logout
     - bash_profile: ~/.bash_profile
     - bashrc: ~/.bashrc
+    - cmd-key-happy.lua: ~/.cmd-key-happy.lua
     - dzil: ~/.dzil
     - mise: ~/.mise
     - perltidyrc: ~/.perltidyrc
