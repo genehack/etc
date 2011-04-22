@@ -24,9 +24,20 @@ else
     export HOSTNAME=`hostname`
     export DOMAIN=`hostname -d`
     export FULL_HOSTNAME=`hostname -f`
-    if [ $TERM != 'dumb' ]; then export TERM=xterm; fi
 fi
 
+case $TERM in
+    xterm)
+        if [ ! $( infocmp xterm-256color>/dev/null 2>/dev/null ) ]; then
+            export TERM=xterm-256color
+        fi
+        ;;
+    screen)
+        if [ ! $( infocmp screen-256color>/dev/null 2>/dev/null ) ]; then
+            export TERM=screen-256color
+        fi
+        ;;
+esac
 
 if [ -e $HOME/.bash_private ]; then . $HOME/.bash_private; fi
 
