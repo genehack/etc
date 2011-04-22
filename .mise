@@ -11,3 +11,4 @@ create:
     - mise: ~/.mise
     - perltidyrc: ~/.perltidyrc
     - screenrc: ~/.screenrc
+    - tmux.conf: ~/.tmux.conf
