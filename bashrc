@@ -246,22 +246,42 @@ shopt -s cdspell
 shopt -s dotglob
 shopt -s no_empty_cmd_completion
 
-working-screen() {
-    SCREEN=`which screen`
-    SCREEN_ID="working"
-    SCREEN_OPTS="-S $SCREEN_ID"
+t() {
+    TMUX=`which tmux`
+    TMUX_ID="working"
+    TMUX_OPTS=""
 
-    if [ "$SCREEN" = "" ] ; then
-        echo "screen not in your PATH, sorry."
+    if [ -z $TMUX ]; then
+        echo "tmux not in PATH, sorry."
         exit 1
     fi
 
-    `$SCREEN -ls | grep $SCREEN_ID 2>&1 >/dev/null`
-    if [ $? = 0 ]; then
-        $SCREEN -rd $SCREEN_ID
+    $($TMUX has -t $TMUX_ID 2>/dev/null)
+    if [ $? = 1 ]; then
+        $TMUX new -s $TMUX_ID
     else
-        $SCREEN $SCREEN_OPTS
+        $TMUX attach -d -t $TMUX_ID
     fi
+
+}
+
+working-screen() {
+    echo "use t instead!"
+    # SCREEN=`which screen`
+    # SCREEN_ID="working"
+    # SCREEN_OPTS="-S $SCREEN_ID"
+
+    # if [ "$SCREEN" = "" ] ; then
+    #     echo "screen not in your PATH, sorry."
+    #     exit 1
+    # fi
+
+    # `$SCREEN -ls | grep $SCREEN_ID 2>&1 >/dev/null`
+    # if [ $? = 0 ]; then
+    #     $SCREEN -rd $SCREEN_ID
+    # else
+    #     $SCREEN $SCREEN_OPTS
+    # fi
 }
 
 v() {
