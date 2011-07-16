@@ -262,7 +262,9 @@ t() {
 
 }
 
-working-screen() { echo "use t instead!" }
+working-screen() {
+    echo "use t instead!"
+}
 
 v() {
   mod_file="lib/${1//:://}.pm"
