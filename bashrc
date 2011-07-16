@@ -262,24 +262,7 @@ t() {
 
 }
 
-working-screen() {
-    echo "use t instead!"
-    # SCREEN=`which screen`
-    # SCREEN_ID="working"
-    # SCREEN_OPTS="-S $SCREEN_ID"
-
-    # if [ "$SCREEN" = "" ] ; then
-    #     echo "screen not in your PATH, sorry."
-    #     exit 1
-    # fi
-
-    # `$SCREEN -ls | grep $SCREEN_ID 2>&1 >/dev/null`
-    # if [ $? = 0 ]; then
-    #     $SCREEN -rd $SCREEN_ID
-    # else
-    #     $SCREEN $SCREEN_OPTS
-    # fi
-}
+working-screen() { echo "use t instead!" }
 
 v() {
   mod_file="lib/${1//:://}.pm"
