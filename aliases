@@ -8,6 +8,8 @@ elif [ $OS_TYPE = 'darwin' ]; then
     alias ls='/opt/local/bin/ls --color=auto --classify'
 fi
 
+alias ack='ACK_PAGER_COLOR="less -x4SrFX" ack -a'
+
 alias cp="cp -i"
 alias find-common="history | awk {'print \$2'} | sort | uniq -c | sort -k1 -nr | head -n 25"
 alias grep='grep --color=auto'
