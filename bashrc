@@ -118,12 +118,12 @@ else
 fi
 
 export ALTERNATE_EDITOR=""
-#export EDITOR="$EMACSCLIENT -t"
-#export GIT_EDITOR="$EMACSCLIENT -t"
-#export VISUAL="$EMACSCLIENT -t -a"
-export EDITOR="vim"
-export GIT_EDITOR="vim"
-export VISUAL="mvim"
+export EDITOR="$EMACSCLIENT -t"
+export GIT_EDITOR="$EMACSCLIENT -t"
+export VISUAL="$EMACSCLIENT -t -a"
+#export EDITOR="vim"
+#export GIT_EDITOR="vim"
+#export VISUAL="mvim"
 
 ## KEYCHAIN
 if shopt -q login_shell ; then
