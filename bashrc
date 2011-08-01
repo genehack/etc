@@ -81,7 +81,7 @@ if [ -e $HOME/.aliases ]; then . $HOME/.aliases; fi
 
 pathadd "/opt/local/bin" "fore"
 
-for PKG in ctags emacs git node subversion tig tmux vim ImageMagick; do
+for PKG in ctags emacs git node perl subversion tig tmux vim ImageMagick; do
     pathadd "/opt/$PKG/bin" "fore"
 done
 
@@ -94,12 +94,6 @@ if [ -e $HOME/man ]; then MANPATH=$HOME/man:$MANPATH; fi
 if [ -e $HOME/proj/git-achievements ]; then
     pathadd "$HOME/proj/git-achievements"
     alias git="git-achievements"
-fi
-
-if [ -e $HOME/.perlbrew/init ]; then
-    source /opt/perl/etc/bashrc
-elif [ -e /opt/perl/bin ]; then
-    pathadd "/opt/perl/bin" "fore"
 fi
 
 export PERL_CPANM_OPT="--skip-installed --prompt"
