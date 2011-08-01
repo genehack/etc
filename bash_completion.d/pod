@@ -1,2 +1,2 @@
-alias pod=perldoc
+alias pod=cpandoc
 complete -C perldoc-complete -o nospace -o default pod
