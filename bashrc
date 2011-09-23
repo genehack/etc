@@ -181,8 +181,8 @@ svn_dir() {
 setprompt() {
   local load etc vcs base_dir sub_dir ref last_command
 
-  P1="{$(color yellow)\T$(color off)}"
-  P2="($(color green)$HOSTNAME$(color off))"
+  P1="\[{$(color yellow)\]\T\[$(color off)}\]"
+  P2="\[($(color green)\]$HOSTNAME\[$(color off))\]"
 
   if [ -e /proc/loadavg ]; then
       load=( $(</proc/loadavg) )
@@ -193,13 +193,13 @@ setprompt() {
   P3=""
   if [ $load ]; then
       if [ ${load%.*} -ge 2 ]; then
-	  P3="[$(color red white)$load$(color off)]"
+	  P3="\[[$(color red white)\]$load\[$(color off)\]]"
       else
-	  P3="[$(color ltblue)$load$(color off)]"
+	  P3="\[[$(color ltblue)\]$load\[$(color off)\]]"
       fi
   fi
 
-  P4="-$(color red)\$?$(color off)-"
+  P4="-\[$(color red)\]\$?\[$(color off)\]-"
 
   # this next bit also ganked from http://muness.blogspot.com/2008/06/stop-presses-bash-said-to-embrace.html
   git_dir || svn_dir
@@ -213,9 +213,9 @@ setprompt() {
       working_on="$base_dir:"
       __vcs_ref="[$ref]"
       __vcs_sub_dir="${sub_dir}"
-      P5="$(color bd)$__vcs_ref$(color off)<$(color yellow)$working_on$__vcs_sub_dir$(color off)>"
+      P5="\[$(color bd)\]$__vcs_ref\[$(color off)\]<\[$(color yellow)\]$working_on$__vcs_sub_dir\[$(color off)\]>"
   else
-      P5="<$(color yellow)\w$(color off)>"
+      P5="<\[$(color yellow)\]\w\[$(color off)\]>"
   fi
 
   PS1="\n$P1 $P2 $P3 $P4\n$P5 \$ "
