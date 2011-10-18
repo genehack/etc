@@ -7,6 +7,7 @@ create:
     - bash_profile: ~/.bash_profile
     - bashrc: ~/.bashrc
     - cmd-key-happy.lua: ~/.cmd-key-happy.lua
+    - dataprinter: ~/.dataprinter
     - dzil: ~/.dzil
     - mise: ~/.mise
     - perltidyrc: ~/.perltidyrc

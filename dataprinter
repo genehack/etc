@@ -1,0 +1,7 @@
+{
+  colored => 1 ,
+  class => {
+    expand => 'all' ,
+  },
+};
+
