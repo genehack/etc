@@ -178,6 +178,11 @@ svn_dir() {
     alias revert="svn revert"
 }
 
+# from https://gist.github.com/1182950
+function parse_git_stash {
+    [[ $(git stash list 2> /dev/null | tail -n1) != "" ]] && echo " {STASH} "
+}
+
 setprompt() {
   local load etc vcs base_dir sub_dir ref last_command
 
@@ -213,7 +218,7 @@ setprompt() {
       working_on="$base_dir:"
       __vcs_ref="[$ref]"
       __vcs_sub_dir="${sub_dir}"
-      P5="\[$(color bd)\]$__vcs_ref\[$(color off)\]<\[$(color yellow)\]$working_on$__vcs_sub_dir\[$(color off)\]>"
+      P5="\[$(color bd)\]$__vcs_ref\[$(color off)\]\[$(color red)\]$(parse_git_stash)\[$(color off)\]<\[$(color yellow)\]$working_on$__vcs_sub_dir\[$(color off)\]>"
   else
       P5="<\[$(color yellow)\]\w\[$(color off)\]>"
   fi
