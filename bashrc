@@ -254,7 +254,7 @@ t() {
 
     $($TMUX has -t $TMUX_ID 2>/dev/null)
     if [ $? = 1 ]; then
-        $TMUX new -s $TMUX_ID
+        $TMUX $TMUX_OPTS new -s $TMUX_ID
     else
         $TMUX attach -d -t $TMUX_ID
     fi
