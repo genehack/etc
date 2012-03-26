@@ -13,3 +13,4 @@ create:
     - perltidyrc: ~/.perltidyrc
     - screenrc: ~/.screenrc
     - tmux.conf: ~/.tmux.conf
+    - zshrc: ~/.zshrc
