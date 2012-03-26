@@ -235,7 +235,7 @@ fi
 export HISTFILESIZE=1000000000
 export HISTIGNORE="&:ls:[bf]g:ext"
 export HISTSIZE=1000000
-export LC_ALL=POSIX
+export LC_ALL=en_US.UTF-8
 export RI='-f ansi'
 
 shopt -s cdspell
