@@ -1,11 +1,22 @@
 # -*- sh -*-
 
+if [ -e ~/.dircolors ]; then
+    DIRCOLORS_OPTS="$HOME/.dircolors"
+fi
+
 if [ $OS_TYPE = 'linux' ]; then
-    eval `dircolors -b`
-    alias ls='LC_ALL=C /bin/ls --color=auto --classify'
+    DIRCOLORS='dircolors'
+    LS='/bin/ls'
 elif [ $OS_TYPE = 'darwin' ]; then
-    eval `/opt/local/bin/dircolors -b`
-    alias ls='LC_ALL=C /opt/local/bin/ls --color=auto --classify'
+    DIRCOLORS='/opt/local/bin/dircolors'
+    LS='/opt/local/bin/ls'
+else
+    unset DIRCOLORS
+fi
+
+if [ -n $DIRCOLORS ]; then
+    eval `$DIRCOLORS $DIRCOLORS_OPTS`
+    alias ls='LC_ALL=C $LS --color=auto --classify'
 fi
 
 alias ack='ACK_PAGER_COLOR="less -x4SrFX" ack -a'
