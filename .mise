@@ -12,6 +12,7 @@ create:
     - dzil: ~/.dzil
     - mise: ~/.mise
     - perltidyrc: ~/.perltidyrc
+    - repl.rc: ~/.re.pl/repl.rc
     - screenrc: ~/.screenrc
     - tmux.conf: ~/.tmux.conf
     - zshrc: ~/.zshrc

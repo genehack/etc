@@ -32,6 +32,8 @@ alias jm='cd $(emacsclient -e "(with-current-buffer (window-buffer (frame-select
 alias prune="git remote prune origin"
 alias list_installed_perl_modules="perl -MExtUtils::Installed -E 'say for ExtUtils::Installed->new->modules'"
 
+alias r=re.pl
+
 alias start_tunnel="stop_tunnel ; ssh -f -N tunnel"
 alias stop_tunnel="kill \`ps ax | grep [t]unnel | cut -f1 -d' '\` 2>/dev/null"
 
