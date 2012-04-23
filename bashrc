@@ -103,21 +103,11 @@ if [ $(which setup-bash-complete) ]; then
     source setup-bash-complete
 fi
 
-if [ $OS_TYPE = 'darwin' ]; then
-    EMACS='/Applications/Emacs.app/Contents/MacOS/Emacs'
-    EMACSCLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
-else
-    EMACS=`which emacs`
-    EMACSCLIENT=`which emacsclient`
-fi
-
+# 'e' lives in my emacs repo
 export ALTERNATE_EDITOR=""
-export EDITOR="$EMACSCLIENT -t"
-export GIT_EDITOR="$EMACSCLIENT -t"
-export VISUAL="$EMACSCLIENT -t -a"
-#export EDITOR="vim"
-#export GIT_EDITOR="vim"
-#export VISUAL="mvim"
+export EDITOR="e"
+export GIT_EDITOR="e"
+export VISUAL="e"
 
 ## KEYCHAIN
 if shopt -q login_shell ; then
