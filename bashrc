@@ -81,7 +81,7 @@ if [ -e $HOME/.aliases ]; then . $HOME/.aliases; fi
 
 pathadd "/opt/local/bin" "fore"
 
-for PKG in ctags emacs git node perl python ruby subversion tig tmux vim ImageMagick; do
+for PKG in ctags emacs git node perl python ruby scala subversion tig tmux vim ImageMagick; do
     pathadd "/opt/$PKG/bin" "fore"
 done
 
