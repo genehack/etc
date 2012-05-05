@@ -11,6 +11,7 @@ create:
     - dircolors.ansi-dark: ~/.dircolors
     - dzil: ~/.dzil
     - mise: ~/.mise
+    - perlcriticrc: ~/.perlcriticrc
     - perltidyrc: ~/.perltidyrc
     - repl.rc: ~/.re.pl/repl.rc
     - screenrc: ~/.screenrc
