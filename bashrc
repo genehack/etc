@@ -165,7 +165,11 @@ git_prompt_status() {
     if [ -n "$CHERRY" ]; then
         STATUS="$(color cyan)↑$(color off)$STATUS"
     fi
-    
+    STASH=$(git stash list 2> /dev/null | tail -n1)
+    if [ -n "$STASH" ]; then
+        STATUS="$(color red white)↓$(color off)$STATUS"
+    fi
+
     echo $STATUS
 }
 
@@ -208,11 +212,6 @@ svn_dir() {
     autostash alias revert="svn revert"
 }
 
-# from https://gist.github.com/1182950
-function parse_git_stash {
-    [[ $(git stash list 2> /dev/null | tail -n1) != "" ]] && echo " {STASH} "
-}
-
 setprompt() {
   local load etc vcs base_dir sub_dir ref last_command
 
@@ -248,7 +247,7 @@ setprompt() {
       working_on="$base_dir:"
       __vcs_ref="[$ref]"
       __vcs_sub_dir="${sub_dir}"
-      P5="$(git_prompt_status)\[$(color bd)\]$__vcs_ref\[$(color off)\]\[$(color red)\]$(parse_git_stash)\[$(color off)\]<\[$(color yellow)\]$working_on$__vcs_sub_dir\[$(color off)\]>"
+      P5="$(git_prompt_status)\[$(color bd)\]$__vcs_ref\[$(color off)\]\[$(color red)\]\[$(color off)\]<\[$(color yellow)\]$working_on$__vcs_sub_dir\[$(color off)\]>"
   else
       P5="<\[$(color yellow)\]\w\[$(color off)\]>"
   fi
