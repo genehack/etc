@@ -1,15 +1,13 @@
-# -*- sh -*-
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/src/oh-my-zsh
 
-zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' max-errors 1
-zstyle ':completion:*' menu select=1
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle :compinstall filename '/Users/genehack/.zshrc'
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(cpanm git osx perl ssh-agent)
 
-autoload -Uz compinit
-compinit
+COMPLETION_WAITING_DOTS="true"
+ZSH_THEME="sunrise"
 
 OS=`uname`
 if [ $OS = 'Linux' ];     then export OS_TYPE='linux'
@@ -17,6 +15,8 @@ elif [ $OS = 'Darwin' ];  then export OS_TYPE='darwin'
 elif [ $OS = 'FreeBSD' ]; then export OS_TYPE='freebsd'
 else                           export OS_TYPE='UNKNOWN'
 fi
+
+if [ -e $HOME/.aliases ]; then . $HOME/.aliases; fi
 
 if [ $OS_TYPE = 'darwin' -o $OS_TYPE = 'freebsd' ]; then
     export HOSTNAME=`/bin/hostname -s`
@@ -35,25 +35,28 @@ else
     export FULL_HOSTNAME=`hostname -f`
 fi
 
-# case $TERM in
-#     xterm)
-#         if [ ! $( infocmp xterm-256color>/dev/null 2>/dev/null ) ]; then
-#             export TERM=xterm-256color
-#         fi
-#         ;;
-#     screen)
-#         if [ ! $( infocmp screen-256color>/dev/null 2>/dev/null ) ]; then
-#             export TERM=screen-256color
-#         fi
-#         ;;
-# esac
+export LC_ALL=en_US.UTF-8
+export RI='-f ansi'
 
-# if [ -e $HOME/.bash_private ]; then . $HOME/.bash_private; fi
+case $TERM in
+    xterm)
+        if [ ! $( infocmp xterm-256color>/dev/null 2>/dev/null ) ]; then
+            export TERM=xterm-256color
+        fi
+        ;;
+    screen)
+        if [ ! $( infocmp screen-256color>/dev/null 2>/dev/null ) ]; then
+            export TERM=screen-256color
+        fi
+        ;;
+esac
+
+if [ -e $HOME/.bash_private ]; then . $HOME/.bash_private; fi
 
 # ganked from http://superuser.com/questions/39751/
 pathadd() {
-    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
-        if [ "$2" ] && [[ "$2" == "fore" ]]; then
+    if [[ -d $1 && ${path[(i)$1]} -gt ${#path} ]]; then
+        if [ "$2" ] && [ "$2" = "fore" ]; then
             PATH="$1:$PATH"
         else
             PATH="$PATH:$1"
@@ -61,36 +64,11 @@ pathadd() {
     fi
 }
 
-# set_up_bash_completion () {
-#     # Check for bash (and that we haven't already been sourced).
-#     [ -z "$BASH_VERSION" -o -n "$BASH_COMPLETION" ] && return;
-
-#     # Check for recent enough version of bash.
-#     bash=${BASH_VERSION%.*}; bmajor=${bash%.*}; bminor=${bash#*.}
-
-#     if [ -n "$PS1" ]; then
-#         if [ $bmajor -eq 2 -a $bminor '>' 04 ] || [ $bmajor -gt 2 ]; then
-#             if [ -e /etc/bash_completion ]; then
-#                 . /etc/bash_completion;
-#             elif [ -e $HOME/etc/bash_completion ]; then
-#                 . $HOME/etc/bash_completion;
-#             fi
-#         fi
-#     fi
-# }
-
-# set_up_bash_completion;
-# if [ -d $HOME/etc/bash_completion.d ]; then
-#     for i in `ls $HOME/etc/bash_completion.d`; do
-#         source $HOME/etc/bash_completion.d/$i
-#     done
-# fi
-
-if [ -e $HOME/.aliases ]; then . $HOME/.aliases; fi
+source $ZSH/oh-my-zsh.sh
 
 pathadd "/opt/local/bin" "fore"
 
-for PKG in ctags emacs git node perl subversion tig tmux vim ImageMagick; do
+for PKG in ctags emacs git node perl python ruby scala subversion tig tmux vim ImageMagick; do
     pathadd "/opt/$PKG/bin" "fore"
 done
 
@@ -107,29 +85,13 @@ fi
 
 export PERL_CPANM_OPT="--skip-installed --prompt"
 
-# bashcomp for cpanm (<http://blog.netcubed.de/2011/02/bash-completion-for-cpanm-and-cpanf/>)
-#if [ $(which setup-bash-complete) ]; then
-#    source setup-bash-complete
-#fi
-
-if [ $OS_TYPE = 'darwin' ]; then
-    EMACS='/Applications/Emacs.app/Contents/MacOS/Emacs'
-    EMACSCLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
-else
-    EMACS=`which emacs`
-    EMACSCLIENT=`which emacsclient`
-fi
-
 export ALTERNATE_EDITOR=""
-export EDITOR="$EMACSCLIENT -t"
-export GIT_EDITOR="$EMACSCLIENT -t"
-export VISUAL="$EMACSCLIENT -t -a"
-#export EDITOR="vim"
-#export GIT_EDITOR="vim"
-#export VISUAL="mvim"
+export EDITOR="e"
+export GIT_EDITOR="e"
+export VISUAL="e"
 
 ## KEYCHAIN
-# if shopt -q login_shell ; then
+if [[ $0 == -* ]]; then
     `which keychain 2>&1 >/dev/null`
     if [ $? = 0 ]; then
         if [ -e ~/.ssh/id_dsa ]; then
@@ -139,7 +101,7 @@ export VISUAL="$EMACSCLIENT -t -a"
             . ~/.keychain/${HOSTNAME}-sh > /dev/null
         fi
     fi
-# fi
+fi
 
 # next three ganked from <http://muness.blogspot.com/2008/06/stop-presses-bash-said-to-embrace.html>
 sub_dir() {
@@ -192,65 +154,6 @@ function parse_git_stash {
     [[ $(git stash list 2> /dev/null | tail -n1) != "" ]] && echo " {STASH} "
 }
 
-setprompt() {
-  local load etc vcs base_dir sub_dir ref last_command
-
-  P1="\[{$(color yellow)\]\T\[$(color off)}\]"
-  P2="\[($(color green)\]$HOSTNAME\[$(color off))\]"
-
-  if [ -e /proc/loadavg ]; then
-      load=( $(</proc/loadavg) )
-  else
-      load=""
-  fi
-
-  P3=""
-  if [ $load ]; then
-      if [ ${load%.*} -ge 2 ]; then
-	  P3="\[[$(color red white)\]$load\[$(color off)\]]"
-      else
-	  P3="\[[$(color ltblue)\]$load\[$(color off)\]]"
-      fi
-  fi
-
-  P4="-\[$(color red)\]\$?\[$(color off)\]-"
-
-  # this next bit also ganked from http://muness.blogspot.com/2008/06/stop-presses-bash-said-to-embrace.html
-  git_dir || svn_dir
-
-  if [ -n "$vcs" ]; then
-      alias st="$vcs status"
-      alias d="$vcs diff"
-      alias up="pull"
-      alias cdb="cd $base_dir"
-      base_dir="$(basename "${base_dir}")"
-      working_on="$base_dir:"
-      __vcs_ref="[$ref]"
-      __vcs_sub_dir="${sub_dir}"
-      P5="\[$(color bd)\]$__vcs_ref\[$(color off)\]\[$(color red)\]$(parse_git_stash)\[$(color off)\]<\[$(color yellow)\]$working_on$__vcs_sub_dir\[$(color off)\]>"
-  else
-      P5="<\[$(color yellow)\]\w\[$(color off)\]>"
-  fi
-
-  PS1="\n$P1 $P2 $P3 $P4\n$P5 \$ "
-}
-
-if [ $TERM = 'dumb' ]; then
-    PS1='$ '
-else
-    PROMPT_COMMAND=setprompt
-fi
-
-export HISTFILESIZE=1000000000
-export HISTIGNORE="&:ls:[bf]g:ext"
-export HISTSIZE=1000000
-export LC_ALL=POSIX
-export RI='-f ansi'
-
-# shopt -s cdspell
-# shopt -s dotglob
-# shopt -s no_empty_cmd_completion
-
 t() {
     TMUX=`which tmux`
     TMUX_ID="working"
@@ -263,7 +166,7 @@ t() {
 
     $($TMUX has -t $TMUX_ID 2>/dev/null)
     if [ $? = 1 ]; then
-        $TMUX new -s $TMUX_ID
+        $TMUX $TMUX_OPTS new -s $TMUX_ID
     else
         $TMUX attach -d -t $TMUX_ID
     fi
@@ -291,4 +194,26 @@ v() {
       fi
     fi
   fi
+}
+
+
+[[ -r "$HOME/.smartcd_config" ]] && source ~/.smartcd_config
+
+chpwd () {
+    if [[ -d .git ]]; then
+        autostash alias st="git status"
+        autostash alias d="git diff"
+        autostash alias up="pull"
+        autostash alias cdb="cd $PWD"
+        autostash alias cleanup="git fsck && git gc"
+        autostash alias commit="git commit -s"
+        autostash alias dc="d --cached"
+        autostash alias l="git log"
+        autostash alias lp="l -p"
+        autostash alias lss="l --stat --summary"
+        autostash alias newbranch="git checkout -b"
+        autostash alias pull="git pull"
+        autostash alias push="commit ; git push"
+        autostash alias revert="git checkout"
+    fi
 }
