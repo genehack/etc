@@ -122,6 +122,8 @@ if shopt -q login_shell ; then
     fi
 fi
 
+[[ -r "$HOME/.smartcd_config" ]] && source ~/.smartcd_config
+
 # next three ganked from <http://muness.blogspot.com/2008/06/stop-presses-bash-said-to-embrace.html>
 sub_dir() {
     local sub_dir
@@ -142,16 +144,16 @@ git_dir() {
     ref=$(git symbolic-ref -q HEAD || git name-rev --name-only HEAD 2>/dev/null)
     ref=${ref#refs/heads/}
     vcs="git"
-    alias cleanup="git fsck && git gc"
-    alias commit="git commit -s"
-    alias dc="d --cached"
-    alias l="git log"
-    alias lp="l -p"
-    alias lss="l --stat --summary"
-    alias newbranch="git checkout -b"
-    alias pull="git pull"
-    alias push="commit ; git push"
-    alias revert="git checkout"
+    autostash alias cleanup="git fsck && git gc"
+    autostash alias commit="git commit -s"
+    autostash alias dc="d --cached"
+    autostash alias l="git log"
+    autostash alias lp="l -p"
+    autostash alias lss="l --stat --summary"
+    autostash alias newbranch="git checkout -b"
+    autostash alias pull="git pull"
+    autostash alias push="commit ; git push"
+    autostash alias revert="git checkout"
 }
 
 svn_dir() {
@@ -162,10 +164,10 @@ svn_dir() {
     sub_dir="/$(sub_dir "${base_dir}")"
     ref=$(svn info "$base_dir" | awk '/^URL/ { sub(".*/","",$0); r=$0 } /^Revision/ { sub("[^0-9]*","",$0); print r":"$0 }')
     vcs="svn"
-    alias pull="svn up"
-    alias commit="svn commit"
-    alias push="svn ci"
-    alias revert="svn revert"
+    autostash alias pull="svn up"
+    autostash alias commit="svn commit"
+    autostash alias push="svn ci"
+    autostash alias revert="svn revert"
 }
 
 # from https://gist.github.com/1182950
@@ -200,10 +202,10 @@ setprompt() {
   git_dir || svn_dir
 
   if [ -n "$vcs" ]; then
-      alias st="$vcs status"
-      alias d="$vcs diff"
-      alias up="pull"
-      alias cdb="cd $base_dir"
+      autostash alias st="$vcs status"
+      autostash alias d="$vcs diff"
+      autostash alias up="pull"
+      autostash alias cdb="cd $base_dir"
       base_dir="$(basename "${base_dir}")"
       working_on="$base_dir:"
       __vcs_ref="[$ref]"
