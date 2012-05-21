@@ -132,6 +132,43 @@ sub_dir() {
     echo ${sub_dir#/}
 }
 
+git_prompt_status() {
+    INDEX=$(git status --porcelain 2> /dev/null)
+    STATUS=""
+    if $(echo "$INDEX" | grep '^?? ' &> /dev/null); then
+        STATUS="$(color blue)✭$(color off)"
+    fi
+    if $(echo "$INDEX" | grep '^A  ' &> /dev/null); then
+        STATUS="$(color green)✚$(color off)$STATUS"
+    elif $(echo "$INDEX" | grep '^M  ' &> /dev/null); then
+        STATUS="$(color green)✚$(color off)$STATUS"
+    fi
+    if $(echo "$INDEX" | grep '^ M ' &> /dev/null); then
+        STATUS="$(color yellow)✹$(color off)$STATUS"
+    elif $(echo "$INDEX" | grep '^AM ' &> /dev/null); then
+        STATUS="$(color yellow)✹$(color off)$STATUS"
+    elif $(echo "$INDEX" | grep '^ T ' &> /dev/null); then
+        STATUS="$(color yellow)✹$(color off)$STATUS"
+    fi
+    if $(echo "$INDEX" | grep '^R  ' &> /dev/null); then
+        STATUS="$(color white)➜$(color off)$STATUS"
+    fi
+    if $(echo "$INDEX" | grep '^ D ' &> /dev/null); then
+        STATUS="$(color red)✖$(color off)$STATUS"
+    elif $(echo "$INDEX" | grep '^AD ' &> /dev/null); then
+        STATUS="$(color red)✖$(color off)$STATUS"
+    fi
+    if $(echo "$INDEX" | grep '^UU ' &> /dev/null); then
+        STATUS="$(color magenta)═$(color off)$STATUS"
+    fi
+    CHERRY=$(git cherry 2> /dev/null)
+    if [ -n "$CHERRY" ]; then
+        STATUS="$(color cyan)↑$(color off)$STATUS"
+    fi
+    
+    echo $STATUS
+}
+
 git_dir() {
     base_dir=$(git rev-parse --show-cdup 2>/dev/null) || return 1
     if [ -n "$base_dir" ]; then
@@ -144,6 +181,7 @@ git_dir() {
     ref=$(git symbolic-ref -q HEAD || git name-rev --name-only HEAD 2>/dev/null)
     ref=${ref#refs/heads/}
     vcs="git"
+
     autostash alias cleanup="git fsck && git gc"
     autostash alias commit="git commit -s"
     autostash alias dc="d --cached"
@@ -210,7 +248,7 @@ setprompt() {
       working_on="$base_dir:"
       __vcs_ref="[$ref]"
       __vcs_sub_dir="${sub_dir}"
-      P5="\[$(color bd)\]$__vcs_ref\[$(color off)\]\[$(color red)\]$(parse_git_stash)\[$(color off)\]<\[$(color yellow)\]$working_on$__vcs_sub_dir\[$(color off)\]>"
+      P5="$(git_prompt_status)\[$(color bd)\]$__vcs_ref\[$(color off)\]\[$(color red)\]$(parse_git_stash)\[$(color off)\]<\[$(color yellow)\]$working_on$__vcs_sub_dir\[$(color off)\]>"
   else
       P5="<\[$(color yellow)\]\w\[$(color off)\]>"
   fi
