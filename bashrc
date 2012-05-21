@@ -233,7 +233,7 @@ setprompt() {
       fi
   fi
 
-  P4="-\[$(color red)\]\$?\[$(color off)\]-"
+  P4="\`if [ \$? -eq 0 ]; then echo $(color green)☺$(color off); else echo $(color red)☹ [ \$? ]$(color off); fi\`"
 
   # this next bit also ganked from http://muness.blogspot.com/2008/06/stop-presses-bash-said-to-embrace.html
   git_dir || svn_dir
