@@ -19,6 +19,9 @@ if [ -n $DIRCOLORS ]; then
     alias ls='LC_ALL=C $LS --color=auto --classify'
 fi
 
+alias ..='cd ..'
+alias ...='cd ../..'
+
 alias ack='ACK_PAGER_COLOR="less -x4SrFX" ack -a'
 
 alias cp="cp -i"
@@ -27,7 +30,10 @@ alias find-common="history | awk {'print \$2'} | sort | uniq -c | sort -k1 -nr |
 
 alias grep='grep --color=auto'
 
+alias l='ls'
+alias la='ls -a'
 alias list_installed_perl_modules="perl -MExtUtils::Installed -E 'say for ExtUtils::Installed->new->modules'"
+alias lla='ls -la'
 
 alias mv="mv -i"
 
@@ -45,4 +51,3 @@ alias upgrade_cpan_modules="cpan-outdated --mirror file:///opt/minicpan | cpanm 
 
 alias vi="vim"
 alias view="vim -R"
-
