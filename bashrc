@@ -81,9 +81,15 @@ if [ -e $HOME/.aliases ]; then . $HOME/.aliases; fi
 
 pathadd "/opt/local/bin" "fore"
 
-for PKG in ctags emacs git node perl python ruby scala subversion tig tmux vim ImageMagick; do
+for PKG in ctags emacs git node perl python ruby subversion tig tmux vim ImageMagick; do
     pathadd "/opt/$PKG/bin" "fore"
 done
+
+if [ -e /opt/scala ]; then
+    export SCALA_HOME=/opt/scala
+    pathadd "$SCALA_HOME/bin" "fore"
+    pathadd "/opt/sbt" "fore"
+fi
 
 pathadd "$HOME/local/bin"
 if [ -e $HOME/local/man ]; then MANPATH=$HOME/local/man:$MANPATH; fi
