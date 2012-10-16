@@ -267,6 +267,10 @@ else
     PROMPT_COMMAND=setprompt
 fi
 
+if [ -e $HOME/etc/dataprinter ]; then
+    export DATAPRINTERRC="$HOME/etc/dataprinter";
+fi
+
 export HISTFILESIZE=1000000000
 export HISTIGNORE="&:ls:[bf]g:ext"
 export HISTSIZE=1000000
