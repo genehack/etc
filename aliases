@@ -26,6 +26,8 @@ alias ack='ACK_PAGER_COLOR="less -x4SrFX" ack -a'
 
 alias cp="cp -i"
 
+alias emacs=e
+
 alias find-common="history | awk {'print \$2'} | sort | uniq -c | sort -k1 -nr | head -n 25"
 
 alias grep='grep --color=auto'
