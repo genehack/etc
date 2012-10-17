@@ -1,5 +1,6 @@
 # Load and configure smartcd
-source ~/.smartcd/lib/core/arrays
+### FIXME this line is the one causing the zsh subshell forkbomb
+#source ~/.smartcd/lib/core/arrays
 source ~/.smartcd/lib/core/varstash
 source ~/.smartcd/lib/core/smartcd
 
