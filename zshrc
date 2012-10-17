@@ -7,6 +7,10 @@ ZSH=$HOME/src/oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="kolo"
+COMPLETION_WAITING_DOTS="true"
+plugins=(cpanm git ssh-agent)
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+
 
 OS=`uname`
 if [ $OS = 'Linux' ];     then export OS_TYPE='linux'
@@ -57,10 +61,6 @@ pathadd() {
 }
 
 if [ -e $HOME/.aliases ]; then source $HOME/.aliases; fi
-
-COMPLETION_WAITING_DOTS="true"
-
-plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
