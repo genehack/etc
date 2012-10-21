@@ -6,7 +6,7 @@ ZSH=$HOME/proj/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="kolo"
+ZSH_THEME="genehack"
 COMPLETION_WAITING_DOTS="true"
 plugins=(cpanm git ssh-agent)
 zstyle :omz:plugins:ssh-agent agent-forwarding on
