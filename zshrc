@@ -1,6 +1,6 @@
 # -*- sh -*-
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/src/oh-my-zsh
+ZSH=$HOME/proj/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
