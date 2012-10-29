@@ -62,8 +62,6 @@ pathadd() {
 
 if [ -e $HOME/.aliases ]; then source $HOME/.aliases; fi
 
-source $ZSH/oh-my-zsh.sh
-
 pathadd "/opt/local/bin" "fore"
 
 for PKG in ctags emacs git node perl python ruby subversion tig tmux vim ImageMagick; do
@@ -150,4 +148,6 @@ t() {
 working-screen() {
     echo "use t instead!"
 }
+
+source $ZSH/oh-my-zsh.sh
 
