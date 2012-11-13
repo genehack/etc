@@ -10,7 +10,9 @@ ZSH_THEME="genehack"
 COMPLETION_WAITING_DOTS="true"
 plugins=(cpanm git ssh-agent)
 zstyle :omz:plugins:ssh-agent agent-forwarding on
+setopt DVORAK
 
+source $ZSH/oh-my-zsh.sh
 
 OS=`uname`
 if [ $OS = 'Linux' ];     then export OS_TYPE='linux'
@@ -148,6 +150,4 @@ t() {
 working-screen() {
     echo "use t instead!"
 }
-
-source $ZSH/oh-my-zsh.sh
 
