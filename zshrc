@@ -109,24 +109,9 @@ export VISUAL="e"
 # fi
 
 ### FIXME this puts zsh into somesort of recursive subshell tailspin
-#[[ -r "$HOME/.smartcd_config" ]] && source ~/.smartcd_config
-alias st="git status"
-alias d="git diff"
-alias up="pull"
-alias cdb="cd __PATH__"
-alias cleanup="git fsck && git gc"
-alias commit="git commit -s"
-alias dc="d --cached"
-alias l="git log"
-alias lp="l -p"
-alias lss="l --stat --summary"
-alias newbranch="git checkout -b"
-alias pull="git pull"
-alias push="commit ; git push"
-alias revert="git checkout"
-### FIXME remove the above aliases once you fix the smartcd issue...
+[[ -r "$HOME/.smartcd_config" ]] && source ~/.smartcd_config
 
-#export LC_ALL=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 t() {
     TMUX=`which tmux`
@@ -150,4 +135,3 @@ t() {
 working-screen() {
     echo "use t instead!"
 }
-
