@@ -96,17 +96,17 @@ export GIT_EDITOR="e"
 export VISUAL="e"
 
 ## KEYCHAIN
-# if shopt -q login_shell ; then
-#     `which keychain 2>&1 >/dev/null`
-#     if [ $? = 0 ]; then
-#         if [ -e ~/.ssh/id_dsa ]; then
-#             keychain -q ~/.ssh/id_dsa 2>/dev/null
-#         fi
-#         if [ -e ~/.keychain/${HOSTNAME}-sh ]; then
-#             . ~/.keychain/${HOSTNAME}-sh > /dev/null
-#         fi
-#     fi
-# fi
+if [[ $- == *l* ]]; then
+    `which keychain 2>&1 >/dev/null`
+    if [ $? = 0 ]; then
+        if [ -e ~/.ssh/id_dsa ]; then
+            keychain -q ~/.ssh/id_dsa 2>/dev/null
+        fi
+        if [ -e ~/.keychain/${HOSTNAME}-sh ]; then
+            . ~/.keychain/${HOSTNAME}-sh > /dev/null
+        fi
+    fi
+fi
 
 ### FIXME this puts zsh into somesort of recursive subshell tailspin
 [[ -r "$HOME/.smartcd_config" ]] && source ~/.smartcd_config
