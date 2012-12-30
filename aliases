@@ -22,7 +22,7 @@ fi
 alias ..='cd ..'
 alias ...='cd ../..'
 
-alias ack='ACK_PAGER_COLOR="less -x4SrFX" ack -a'
+alias ack='ACK_PAGER_COLOR="less -x4SrFX" ack'
 
 alias cp="cp -i"
 
