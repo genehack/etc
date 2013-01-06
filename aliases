@@ -39,8 +39,8 @@ alias lla='ls -la'
 
 alias mv="mv -i"
 
+alias pod=cpandoc
 alias proveall='prove -j9 --state=slow,save -lr t'
-
 alias prune="git remote prune origin"
 
 alias r=re.pl
