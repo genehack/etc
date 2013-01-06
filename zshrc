@@ -88,6 +88,7 @@ if [ -e $HOME/proj/git-achievements ]; then
 fi
 
 export PERL_CPANM_OPT="--skip-installed --prompt"
+if [ -e $HOME/etc/dataprinter ]; then export DATAPRINTERRC=$HOME/etc/dataprinter; fi
 
 # 'e' lives in my emacs repo
 export ALTERNATE_EDITOR=""
