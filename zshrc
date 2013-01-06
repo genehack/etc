@@ -113,6 +113,14 @@ fi
 
 export LC_ALL=en_US.UTF-8
 
+# start up dropbox on Linux hosts that have it installed
+if [ -e $HOME/Dropbox ] && [ $OS_TYPE = 'linux' ]; then
+    $(dropbox running)
+    if [[ $? == 0 ]]; then
+        dropbox start
+    fi
+fi
+
 t() {
     TMUX=`which tmux`
     TMUX_ID="working"
