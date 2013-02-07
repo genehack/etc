@@ -73,7 +73,7 @@ done
 if [ -e /opt/scala ]; then
     export SCALA_HOME=/opt/scala
     pathadd "$SCALA_HOME/bin" "fore"
-    pathadd "/opt/sbt" "fore"
+    pathadd "/opt/sbt/bin" "fore"
 fi
 
 pathadd "$HOME/local/bin"
