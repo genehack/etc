@@ -10,6 +10,7 @@ if [ $OS_TYPE = 'linux' ]; then
 elif [ $OS_TYPE = 'darwin' ]; then
     DIRCOLORS='/opt/local/bin/dircolors'
     LS='/opt/local/bin/ls'
+    alias ldd='otool -L'
 else
     unset DIRCOLORS
 fi
