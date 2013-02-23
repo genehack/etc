@@ -73,7 +73,7 @@ done
 if [ -e /opt/scala ]; then
     export SCALA_HOME=/opt/scala
     pathadd "$SCALA_HOME/bin" "fore"
-    pathadd "/opt/sbt" "fore"
+    pathadd "/opt/sbt/bin" "fore"
 fi
 
 pathadd "$HOME/local/bin"
@@ -88,6 +88,7 @@ if [ -e $HOME/proj/git-achievements ]; then
 fi
 
 export PERL_CPANM_OPT="--skip-installed --prompt"
+if [ -e $HOME/etc/dataprinter ]; then export DATAPRINTERRC=$HOME/etc/dataprinter; fi
 
 # 'e' lives in my emacs repo
 export ALTERNATE_EDITOR=""
@@ -112,6 +113,14 @@ fi
 [[ -r "$HOME/.smartcd_config" ]] && source ~/.smartcd_config
 
 export LC_ALL=en_US.UTF-8
+
+# start up dropbox on Linux hosts that have it installed
+if [ -e $HOME/Dropbox ] && [ $OS_TYPE = 'linux' ]; then
+    $(dropbox running)
+    if [[ $? == 0 ]]; then
+        dropbox start
+    fi
+fi
 
 t() {
     TMUX=`which tmux`
