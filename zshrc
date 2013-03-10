@@ -109,7 +109,6 @@ if [[ $- == *l* ]]; then
     fi
 fi
 
-### FIXME this puts zsh into somesort of recursive subshell tailspin
 [[ -r "$HOME/.smartcd_config" ]] && source ~/.smartcd_config
 
 export LC_ALL=en_US.UTF-8
