@@ -12,8 +12,6 @@ plugins=(cpanm git ssh-agent)
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 setopt DVORAK
 
-source $ZSH/oh-my-zsh.sh
-
 OS=`uname`
 if [ $OS = 'Linux' ];     then export OS_TYPE='linux'
 elif [ $OS = 'Darwin' ];  then export OS_TYPE='darwin'
@@ -143,3 +141,10 @@ t() {
 working-screen() {
     echo "use t instead!"
 }
+
+source $ZSH/oh-my-zsh.sh
+
+# if we're using git-achievements need to tweak tab complete
+if [ -e $HOME/proj/git-achievements ]; then
+    compdef git-achievements=git
+fi
