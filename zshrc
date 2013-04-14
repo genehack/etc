@@ -8,6 +8,7 @@ ZSH=$HOME/proj/oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="genehack"
 COMPLETION_WAITING_DOTS="true"
+DISABLE_AUTO_TITLE="true"
 plugins=(cpanm git ssh-agent)
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 setopt DVORAK
