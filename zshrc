@@ -65,7 +65,7 @@ if [ -e $HOME/.aliases ]; then source $HOME/.aliases; fi
 
 pathadd "/opt/local/bin" "fore"
 
-for PKG in ctags emacs git node perl python ruby subversion tig tmux vim ImageMagick; do
+for PKG in ctags emacs git node python ruby subversion tig tmux vim ImageMagick; do
     pathadd "/opt/$PKG/bin" "fore"
 done
 
@@ -148,4 +148,11 @@ source $ZSH/oh-my-zsh.sh
 # if we're using git-achievements need to tweak tab complete
 if [ -e $HOME/proj/git-achievements ]; then
     compdef git-achievements=git
+fi
+
+if [ -e /opt/perl/etc/bashrc ]; then
+    export PERLBREW_ROOT=/opt/perl
+    source /opt/perl/etc/bashrc
+elif [ -e /opt/perl/bin ]; then
+    pathadd "/opt/perl/bin" "fore"
 fi
