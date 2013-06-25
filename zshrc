@@ -50,6 +50,8 @@ case $TERM in
         ;;
 esac
 
+if [ -e $HOME/.zsh_private ]; then . $HOME/.zsh_private; fi
+
 # ganked from http://superuser.com/questions/39751/
 pathadd() {
     if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
