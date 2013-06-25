@@ -9,7 +9,7 @@ ZSH=$HOME/proj/oh-my-zsh
 ZSH_THEME="genehack"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_AUTO_TITLE="true"
-plugins=(cpanm git ssh-agent)
+plugins=(cpanm ssh-agent)
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 setopt DVORAK
 
