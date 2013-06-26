@@ -6,7 +6,7 @@ source ~/.smartcd/lib/core/varstash
 smartcd setup cd
 #smartcd setup pushd
 #smartcd setup popd
-#smartcd setup prompt-hook
+smartcd setup prompt-hook
 #smartcd setup exit-hook
 smartcd setup completion
 
