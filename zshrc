@@ -63,8 +63,6 @@ pathadd() {
     fi
 }
 
-if [ -e $HOME/.aliases ]; then source $HOME/.aliases; fi
-
 pathadd "/opt/local/bin" "fore"
 
 for PKG in ctags emacs git node python ruby subversion tig tmux vim ImageMagick; do
@@ -146,6 +144,8 @@ working-screen() {
 }
 
 source $ZSH/oh-my-zsh.sh
+
+if [ -e $HOME/.aliases ]; then . $HOME/.aliases; fi
 
 # if we're using git-achievements need to tweak tab complete
 if [ -e $HOME/proj/git-achievements ]; then
