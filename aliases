@@ -54,3 +54,5 @@ alias upgrade_cpan_modules="cpan-outdated --mirror file:///opt/minicpan | cpanm 
 
 alias vi="vim"
 alias view="vim -R"
+# https://twitter.com/ampajaro/status/360450210884882432
+alias vim='emacsclient -t -a vim'
