@@ -152,7 +152,12 @@ if [ -e $HOME/proj/git-achievements ]; then
     compdef git-achievements=git
 fi
 
-if [ -e /opt/perl/etc/bashrc ]; then
+# perl environment
+if [ -e /opt/plenv ]; then
+    export PLENV_ROOT=/opt/plenv
+    export PATH="$PLENV_ROOT/bin:$PATH"
+    eval "$(plenv init -)"
+elif [ -e /opt/etc/perl/bashrc ]; then
     export PERLBREW_ROOT=/opt/perl
     source /opt/perl/etc/bashrc
 elif [ -e /opt/perl/bin ]; then
