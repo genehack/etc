@@ -59,8 +59,8 @@ apps = {
 --   shift control alt cmd fn, separated by a hyphen ("-").
 
 function swap_keys(t)
-   for i,v in pairs(t) do print(i,v) end
-   print(t.appname)
+   -- for i,v in pairs(t) do print(i,v) end
+   -- print(t.appname)
    if set_contains(global_excludes, t.key_str_seq) then
       return false
    end
