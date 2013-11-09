@@ -8,10 +8,6 @@ manage:
 create:
   directories:
     - bin
-    - doc
-    - etc
-    - lib
-    - private
     - proj
     - src
     - var
