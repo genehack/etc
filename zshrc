@@ -75,6 +75,15 @@ if [ -e /opt/scala ]; then
     pathadd "/opt/sbt/bin" "fore"
 fi
 
+if [ -e /opt/go ]; then
+    export GOROOT=/opt/go
+    if [ -e $HOME/proj/go ]; then
+        export GOPATH=$HOME/proj/go
+        pathadd "$GOPATH/bin"
+    fi
+    pathadd "$GOROOT/bin" "fore"
+fi
+
 pathadd "$HOME/local/bin"
 if [ -e $HOME/local/man ]; then MANPATH=$HOME/local/man:$MANPATH; fi
 
