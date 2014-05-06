@@ -69,12 +69,6 @@ for PKG in ctags emacs git node python ruby subversion tig tmux vim ImageMagick;
     pathadd "/opt/$PKG/bin" "fore"
 done
 
-if [ -e /opt/scala ]; then
-    export SCALA_HOME=/opt/scala
-    pathadd "$SCALA_HOME/bin" "fore"
-    pathadd "/opt/sbt/bin" "fore"
-fi
-
 if [ -e /opt/go ]; then
     export GOROOT=/opt/go
     if [ -e $HOME/proj/go ]; then
@@ -82,6 +76,16 @@ if [ -e /opt/go ]; then
         pathadd "$GOPATH/bin"
     fi
     pathadd "$GOROOT/bin" "fore"
+fi
+
+if [ -e /opt/play ]; then
+    pathadd "/opt/play" "fore"
+fi
+
+if [ -e /opt/scala ]; then
+    export SCALA_HOME=/opt/scala
+    pathadd "$SCALA_HOME/bin" "fore"
+    pathadd "/opt/sbt/bin" "fore"
 fi
 
 pathadd "$HOME/local/bin"
