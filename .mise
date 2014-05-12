@@ -12,6 +12,7 @@ create:
     - mise: ~/.mise
     - perlcriticrc: ~/.perlcriticrc
     - perltidyrc: ~/.perltidyrc
+    - private.xml: ~/Library/Application Support/Keyremap4macbook/private.xml
     - repl.rc: ~/.re.pl/repl.rc
     - screenrc: ~/.screenrc
     - smartcd_config: ~/.smartcd_config
