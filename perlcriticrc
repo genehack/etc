@@ -1,3 +1,4 @@
 [TestingAndDebugging::RequireUseStrict]
 equivalent_modules = Mouse
+equivalent_modules = Test::Routine
 
