@@ -176,3 +176,8 @@ elif [ -e /opt/perl/etc/bashrc ]; then
 elif [ -e /opt/perl/bin ]; then
     pathadd "/opt/perl/bin" "fore"
 fi
+
+cpanm () {
+    command cpanm $@ && cpanm-reporter
+}
+
