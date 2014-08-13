@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <root>
     <item>
+        <name>Remap § to caps_lock</name>
+        <appendix>Remap lower-left '|' key to caps lock on Kinesys</appendix>
+        <identifier>genehack.pipe_to_caps_lock</identifier>
+        <autogen>--KeyToKey-- KeyCode::DANISH_DOLLAR, KeyCode::CAPSLOCK</autogen>
+    </item>
+    <item>
         <name>Remap Left Control to Hyper</name>
         <appendix>OS X doesn't have a Hyper. This maps Left Control to Control + Shift + Option + Command.</appendix>
 
