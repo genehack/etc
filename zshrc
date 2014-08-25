@@ -178,6 +178,7 @@ elif [ -e /opt/perl/bin ]; then
 fi
 
 cpanm () {
-    command cpanm $@ && cpanm-reporter
+    command cpanm $@;
+    cpanm-reporter;
 }
 
