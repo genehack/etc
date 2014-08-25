@@ -50,8 +50,6 @@ alias rm="rm -i"
 alias start_tunnel="stop_tunnel ; ssh -f -N tunnel"
 alias stop_tunnel="kill \`ps ax | grep [t]unnel | cut -f1 -d' '\` 2>/dev/null"
 
-alias upgrade_cpan_modules="cpan-outdated --mirror file:///opt/minicpan | cpanm --mirror file:///opt/minicpan --mirror-only"
-
 alias vi="vim"
 alias view="vim -R"
 # https://twitter.com/ampajaro/status/360450210884882432
