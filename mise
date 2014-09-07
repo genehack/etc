@@ -9,6 +9,7 @@ create:
   directories:
     - bin
     - proj
+    - proj/go/src/github.com/genehack
     - src
     - var
   links:
