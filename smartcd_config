@@ -1,7 +1,7 @@
 # Load and configure smartcd
-source ~/.smartcd/lib/core/smartcd
 source ~/.smartcd/lib/core/arrays
 source ~/.smartcd/lib/core/varstash
+source ~/.smartcd/lib/core/smartcd
 
 smartcd setup cd
 #smartcd setup pushd
