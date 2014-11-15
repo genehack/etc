@@ -94,11 +94,6 @@ if [ -e $HOME/local/man ]; then MANPATH=$HOME/local/man:$MANPATH; fi
 pathadd "$HOME/bin" "fore"
 if [ -e $HOME/man ]; then MANPATH=$HOME/man:$MANPATH; fi
 
-if [ -e $HOME/proj/git-achievements ]; then
-    pathadd "$HOME/proj/git-achievements"
-    alias git="git-achievements"
-fi
-
 export PERL_CPANM_OPT="--skip-installed --prompt"
 if [ -e $HOME/etc/dataprinter ]; then export DATAPRINTERRC=$HOME/etc/dataprinter; fi
 
@@ -159,11 +154,6 @@ working-screen() {
 source $ZSH/oh-my-zsh.sh
 
 if [ -e $HOME/.aliases ]; then . $HOME/.aliases; fi
-
-# if we're using git-achievements need to tweak tab complete
-if [ -e $HOME/proj/git-achievements ]; then
-    compdef git-achievements=git
-fi
 
 # perl environment
 if [ -e /opt/plenv ]; then
