@@ -13,7 +13,6 @@ create:
     - perlcriticrc: ~/.perlcriticrc
     - perltidyrc: ~/.perltidyrc
     - private.xml: ~/Library/Application Support/Karabiner/private.xml
-    - repl.rc: ~/.re.pl/repl.rc
     - screenrc: ~/.screenrc
     - smartcd_config: ~/.smartcd_config
     - tmux.conf: ~/.tmux.conf
