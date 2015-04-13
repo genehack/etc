@@ -44,7 +44,7 @@ alias pod=cpandoc
 alias proveall='prove -j9 --state=slow,save -lr t'
 alias prune="git remote prune origin"
 
-alias r=re.pl
+alias r=reply
 alias rm="rm -i"
 
 alias start_tunnel="stop_tunnel ; ssh -f -N tunnel"
