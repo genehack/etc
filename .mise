@@ -9,6 +9,7 @@ create:
     - cmd-key-happy.lua: ~/.cmd-key-happy.lua
     - dircolors.ansi-dark: ~/.dircolors
     - dzil: ~/.dzil
+    - eslintrc: ~/.eslintrc
     - mise: ~/.mise
     - perlcriticrc: ~/.perlcriticrc
     - perltidyrc: ~/.perltidyrc
