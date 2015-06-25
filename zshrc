@@ -65,7 +65,7 @@ pathadd() {
 
 pathadd "/opt/local/bin" "fore"
 
-for PKG in ctags emacs git node python rust ruby sml subversion tig tmux vim ImageMagick weechat; do
+for PKG in ctags emacs git node python rust ruby sml subversion tig tmux vim ImageMagick weechat znc; do
     pathadd "/opt/$PKG/bin" "fore"
 done
 
