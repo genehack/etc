@@ -1,0 +1,32 @@
+[
+   {
+      "metadata" : {
+         "core" : {
+            "update_time" : "2014-08-25T06:49:18Z",
+            "guid" : "efaea432-2c23-11e4-82e9-b1bd3c985d1a",
+            "schema_version" : 1,
+            "valid" : 1,
+            "creator" : "metabase:user:efaea432-2c23-11e4-82e9-b1bd3c985d1a",
+            "type" : "Metabase-User-Profile",
+            "resource" : "metabase:user:efaea432-2c23-11e4-82e9-b1bd3c985d1a",
+            "creation_time" : "2014-08-25T06:49:18Z"
+         }
+      },
+      "content" : "[{\"content\":\"John SJ Anderson\",\"metadata\":{\"core\":{\"creator\":\"metabase:user:efaea432-2c23-11e4-82e9-b1bd3c985d1a\",\"resource\":\"metabase:user:efaea432-2c23-11e4-82e9-b1bd3c985d1a\",\"creation_time\":\"2014-08-25T06:49:18Z\",\"type\":\"Metabase-User-FullName\",\"update_time\":\"2014-08-25T06:49:18Z\",\"guid\":\"efaee9ba-2c23-11e4-82e9-b1bd3c985d1a\",\"valid\":1,\"schema_version\":1}}},{\"metadata\":{\"core\":{\"schema_version\":1,\"valid\":1,\"update_time\":\"2014-08-25T06:49:18Z\",\"guid\":\"efaef2d4-2c23-11e4-82e9-b1bd3c985d1a\",\"type\":\"Metabase-User-EmailAddress\",\"resource\":\"metabase:user:efaea432-2c23-11e4-82e9-b1bd3c985d1a\",\"creation_time\":\"2014-08-25T06:49:18Z\",\"creator\":\"metabase:user:efaea432-2c23-11e4-82e9-b1bd3c985d1a\"}},\"content\":\"genehack@genehack.org\"}]"
+   },
+   {
+      "metadata" : {
+         "core" : {
+            "resource" : "metabase:user:efaea432-2c23-11e4-82e9-b1bd3c985d1a",
+            "creation_time" : "2014-08-25T06:49:18Z",
+            "type" : "Metabase-User-Secret",
+            "creator" : "metabase:user:efaea432-2c23-11e4-82e9-b1bd3c985d1a",
+            "schema_version" : 1,
+            "valid" : 1,
+            "update_time" : "2014-08-25T06:49:18Z",
+            "guid" : "efaefd06-2c23-11e4-82e9-b1bd3c985d1a"
+         }
+      },
+      "content" : "7078c4ed"
+   }
+]
