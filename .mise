@@ -9,7 +9,7 @@ create:
     - bash_profile: ~/.bash_profile
     - bashrc: ~/.bashrc
     - cmd-key-happy.lua: ~/.cmd-key-happy.lua
-    - cpanreporter/config: ~/.cpanreporter/config
+    - cpanreporter/config.ini: ~/.cpanreporter/config.ini
     - cpanreporter/metabase_id.json: ~/.cpanreporter/metabase_id.json
     - dircolors.ansi-dark: ~/.dircolors
     - dzil: ~/.dzil
