@@ -26,7 +26,7 @@
         <autogen>
             --KeyToKey--
             KeyCode::F19,
-    
+
             KeyCode::COMMAND_L,
             ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
         </autogen>
@@ -34,7 +34,7 @@
     <item>
         <name>Use the correct shift keys (Builtin).</name>
         <identifier>genehack.correct_shift_keys_builtin</identifier>
-    
+
         <autogen>--KeyToKey-- KeyCode::Q, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
         <autogen>--KeyToKey-- KeyCode::W, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
         <autogen>--KeyToKey-- KeyCode::E, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
@@ -49,7 +49,7 @@
         <autogen>--KeyToKey-- KeyCode::X, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
         <autogen>--KeyToKey-- KeyCode::C, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
         <autogen>--KeyToKey-- KeyCode::V, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
-    
+
         <autogen>--KeyToKey-- KeyCode::Y,         ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
         <autogen>--KeyToKey-- KeyCode::U,         ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
         <autogen>--KeyToKey-- KeyCode::I,         ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
@@ -69,7 +69,7 @@
     <item>
         <name>Use the correct shift keys (Kinesys).</name>
         <identifier>genehack.correct_shift_keys.kinesys</identifier>
-    
+
         <autogen>--KeyToKey-- KeyCode::EQUAL,         ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
         <autogen>--KeyToKey-- KeyCode::KEY_1,         ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
         <autogen>--KeyToKey-- KeyCode::KEY_2,         ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
@@ -92,7 +92,7 @@
         <autogen>--KeyToKey-- KeyCode::K,             ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
         <autogen>--KeyToKey-- KeyCode::X,             ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
         <autogen>--KeyToKey-- KeyCode::BACKQUOTE,     ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
-    
+
         <autogen>--KeyToKey-- KeyCode::KEY_6,         ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
         <autogen>--KeyToKey-- KeyCode::KEY_7,         ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
         <autogen>--KeyToKey-- KeyCode::KEY_8,         ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
@@ -128,9 +128,9 @@
     <item>
       <name>Shifts to Parentheses</name>
       <appendix>Shifts, when pressed alone, type parentheses.  When used with other keys they're normal shifts.</appendix>
-  
+
       <identifier>genehack.shifts_to_parens</identifier>
-  
+
      <!-- This is the basic mapping. -->
       <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L</autogen>
       <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_R</autogen>
@@ -140,7 +140,7 @@
       <autogen>--KeyToKey-- KeyCode::KEY_9,       ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
       <autogen>--KeyToKey-- KeyCode::KEY_0,       ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
       <autogen>--KeyToKey-- KeyCode::KEY_0,       ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
-      
+
       <!--
           Remap the "rolls" of () and )( because it's too easy to hit one
           before finishing the other, and there's no other reason to be
@@ -148,6 +148,6 @@
       -->
       <autogen>--KeyToKey-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L</autogen>
       <autogen>--KeyToKey-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L, KeyCode::KEY_0, ModifierFlag::SHIFT_L</autogen>
-  
+
     </item>
 </root>
