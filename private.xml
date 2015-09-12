@@ -7,6 +7,17 @@
         <autogen>--KeyToKey-- KeyCode::DANISH_DOLLAR, KeyCode::CAPSLOCK</autogen>
     </item>
     <item>
+      <name>Kinesis Media Keys</name>
+      <appendix>Map F3/F4/F5/F10/F11 to media commands</appendix>
+      <identifier>genehack.media_keys</identifier>
+      <autogen>__KeyToKey__ KeyCode::F3,  KeyCode::VK_CONSUMERKEY_MUSIC_PREV</autogen>
+      <autogen>__KeyToKey__ KeyCode::F4,  KeyCode::VK_CONSUMERKEY_MUSIC_PLAY</autogen>
+      <autogen>__KeyToKey__ KeyCode::F5,  KeyCode::VK_CONSUMERKEY_MUSIC_NEXT</autogen>
+      <autogen>__KeyToKey__ KeyCode::F9,  KeyCode::VK_CONSUMERKEY_VOLUME_MUTE</autogen>
+      <autogen>__KeyToKey__ KeyCode::F10, KeyCode::VK_CONSUMERKEY_VOLUME_DOWN</autogen>
+      <autogen>__KeyToKey__ KeyCode::F11, KeyCode::VK_CONSUMERKEY_VOLUME_UP</autogen>
+    </item>
+    <item>
         <name>Remap Left Control to Hyper</name>
         <appendix>OS X doesn't have a Hyper. This maps Left Control to Control + Shift + Option + Command.</appendix>
 
