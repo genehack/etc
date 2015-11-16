@@ -65,7 +65,7 @@ pathadd() {
 
 pathadd "/opt/local/bin" "fore"
 
-for PKG in ctags emacs git node python rust ruby sml subversion tig tmux vim ImageMagick weechat znc; do
+for PKG in ctags emacs git python rust ruby sml subversion tig tmux vim ImageMagick weechat znc; do
     pathadd "/opt/$PKG/bin" "fore"
 done
 
@@ -78,8 +78,14 @@ if [ -e /opt/go ]; then
     pathadd "$GOROOT/bin" "fore"
 fi
 
+if [ -e /opt/nvm ]; then
+    . /opt/nvm/nvm.sh
+fi
+
 if [ -e /opt/play ]; then
     pathadd "/opt/play" "fore"
+elif [ -e /opt/node ]; then
+    pathadd "/opt/node/bin" "fore"
 fi
 
 if [ -e /opt/scala ]; then
