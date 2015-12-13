@@ -80,14 +80,13 @@ fi
 
 if [ -e /opt/nvm ]; then
     . /opt/nvm/nvm.sh
-fi
-
-if [ -e /opt/play ]; then
-    pathadd "/opt/play" "fore"
 elif [ -e /opt/node ]; then
     pathadd "/opt/node/bin" "fore"
 fi
 
+if [ -e /opt/play ]; then
+    pathadd "/opt/play" "fore"
+fi
 if [ -e /opt/scala ]; then
     export SCALA_HOME=/opt/scala
     pathadd "$SCALA_HOME/bin" "fore"
