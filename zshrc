@@ -112,8 +112,8 @@ export VISUAL="e"
 if [[ $- == *l* ]]; then
     `which keychain 2>&1 >/dev/null`
     if [ $? = 0 ]; then
-        if [ -e ~/.ssh/id_dsa ]; then
-            keychain -q ~/.ssh/id_dsa 2>/dev/null
+        if [ -e ~/.ssh/id_rsa ]; then
+            keychain -q ~/.ssh/id_rsa 2>/dev/null
         fi
         if [ -e ~/.keychain/${HOSTNAME}-sh ]; then
             . ~/.keychain/${HOSTNAME}-sh > /dev/null
