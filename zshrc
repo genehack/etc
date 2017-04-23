@@ -93,6 +93,10 @@ if [ -e /opt/scala ]; then
     pathadd "/opt/sbt/bin" "fore"
 fi
 
+if [ -e /opt/swift/usr/bin/ ]; then
+    pathadd "/opt/swift/usr/bin"
+fi
+
 pathadd "$HOME/local/bin"
 if [ -e $HOME/local/man ]; then MANPATH=$HOME/local/man:$MANPATH; fi
 
