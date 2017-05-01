@@ -14,6 +14,7 @@ create:
     - dircolors.ansi-dark: ~/.dircolors
     - dzil: ~/.dzil
     - eslintrc: ~/.eslintrc
+    - karabiner.json: ~/.karabiner.d/configuration/karabiner.json
     - mise: ~/.mise
     - perlcriticrc: ~/.perlcriticrc
     - perltidyrc: ~/.perltidyrc
