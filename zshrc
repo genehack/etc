@@ -187,14 +187,14 @@ cpanm () {
 }
 
 of() {
-if [ $OS_TYPE = 'darwin' ]; then
-    osascript <<EOT
+    if [ $OS_TYPE = 'darwin' ]; then
+        osascript <<EOT
       tell application "OmniFocus"
         parse tasks into default document with transport text "$@"
       end tell
 EOT
-else
-    echo "Only works on Mac!"
-fi
+    else
+        echo "Only works on Mac!"
+    fi
 }
 
