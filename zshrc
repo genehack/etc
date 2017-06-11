@@ -97,6 +97,11 @@ if [ -e /opt/swift/usr/bin/ ]; then
     pathadd "/opt/swift/usr/bin"
 fi
 
+if [ -e /usr/local/share/dotnet ]; then
+    export DOTNET_CLI_TELEMETRY_OPTOUT=1
+    pathadd "/usr/local/share/dotnet"
+fi
+
 pathadd "$HOME/local/bin"
 if [ -e $HOME/local/man ]; then MANPATH=$HOME/local/man:$MANPATH; fi
 
