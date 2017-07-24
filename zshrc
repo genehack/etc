@@ -124,6 +124,9 @@ if [[ $- == *l* ]]; then
         if [ -e ~/.ssh/id_rsa ]; then
             keychain -q ~/.ssh/id_rsa 2>/dev/null
         fi
+        if [ -e ~/.ssh/id_ecdsa ]; then
+            keychain -q ~/.ssh/id_ecdsa 2>/dev/null
+        fi
         if [ -e ~/.keychain/${HOSTNAME}-sh ]; then
             . ~/.keychain/${HOSTNAME}-sh > /dev/null
         fi
