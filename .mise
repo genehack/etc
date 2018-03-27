@@ -3,7 +3,6 @@ create:
   directories:
     - ~/.cpanreporter
   links:
-    - Xmodmap: ~/.Xmodmap
     - aliases: ~/.aliases
     - bash_logout: ~/.bash_logout
     - bash_profile: ~/.bash_profile
