@@ -72,6 +72,7 @@ if [ -e /opt/go ]; then
 fi
 
 if [ -e /opt/nvm ]; then
+    export NVM_DIR="/opt/nvm"
     . /opt/nvm/nvm.sh
 elif [ -e /opt/node ]; then
     pathadd "/opt/node/bin" "fore"
