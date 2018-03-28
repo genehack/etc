@@ -9,7 +9,7 @@ ZSH=$HOME/proj/oh-my-zsh
 ZSH_THEME="genehack"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_AUTO_TITLE="true"
-plugins=(cpanm npm ssh-agent)
+plugins=(cpanm npm nvm ssh-agent zsh-syntax-highlighting)
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 setopt DVORAK
 
@@ -71,12 +71,7 @@ if [ -e /opt/go ]; then
     pathadd "$GOROOT/bin" "fore"
 fi
 
-if [ -e /opt/nvm ]; then
-    export NVM_DIR="/opt/nvm"
-    . /opt/nvm/nvm.sh
-elif [ -e /opt/node ]; then
-    pathadd "/opt/node/bin" "fore"
-fi
+export NVM_DIR="/opt/nvm"
 
 if [ -e /opt/play ]; then
     pathadd "/opt/play" "fore"
@@ -191,8 +186,6 @@ EOT
         echo "Only works on Mac!"
     fi
 }
-
-[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Setup fzf path (for Macs with fzf via homebrew)
 if [ -e /usr/local/opt/fzf ]; then
