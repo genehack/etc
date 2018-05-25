@@ -53,4 +53,4 @@ alias stop_tunnel="kill \`ps ax | grep [t]unnel | cut -f1 -d' '\` 2>/dev/null"
 alias vi="vim"
 alias view="vim -R"
 # https://twitter.com/ampajaro/status/360450210884882432
-alias vim='emacsclient -t -a vim'
+#alias vim='emacsclient -t -a vim'
