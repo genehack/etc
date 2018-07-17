@@ -89,6 +89,7 @@ fi
 if [ -e /usr/local/share/dotnet ]; then
     export DOTNET_CLI_TELEMETRY_OPTOUT=1
     pathadd "/usr/local/share/dotnet"
+    pathadd "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
 fi
 
 pathadd "$HOME/bin" "fore"
