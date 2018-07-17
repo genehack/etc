@@ -158,7 +158,7 @@ if [ -e $HOME/.aliases ]; then . $HOME/.aliases; fi
 # perl environment
 if [ -e /opt/plenv ]; then
     export PLENV_ROOT=/opt/plenv
-    export PATH="$PLENV_ROOT/bin:$PATH"
+    pathadd "$PLENV_ROOT/bin" "fore"
     eval "$(plenv init -)"
 elif [ -e /opt/perl/etc/bashrc ]; then
     export PERLBREW_ROOT=/opt/perl
@@ -186,7 +186,7 @@ EOT
 
 # Setup fzf path (for Macs with fzf via homebrew)
 if [ -e /usr/local/opt/fzf ]; then
-    export PATH="$PATH:/usr/local/opt/fzf/bin"
+    pathadd "/usr/local/opt/fzf/bin/"
 
     ## FZF
     export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
