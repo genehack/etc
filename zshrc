@@ -91,9 +91,6 @@ if [ -e /usr/local/share/dotnet ]; then
     pathadd "/usr/local/share/dotnet"
 fi
 
-pathadd "$HOME/local/bin"
-if [ -e $HOME/local/man ]; then MANPATH=$HOME/local/man:$MANPATH; fi
-
 pathadd "$HOME/bin" "fore"
 if [ -e $HOME/man ]; then MANPATH=$HOME/man:$MANPATH; fi
 
