@@ -11,7 +11,8 @@ create:
     - cpanreporter/config.ini: ~/.cpanreporter/config.ini
     - cpanreporter/metabase_id.json: ~/.cpanreporter/metabase_id.json
     - dircolors.ansi-dark: ~/.dircolors
-    - dzil: ~/.dzil
+    - dzil/config.ini: ~/.dzil/config.ini
+    - dzil/profiles: ~/.dzil/profiles
     - eslintrc: ~/.eslintrc
     - karabiner.json: ~/.karabiner.d/configuration/karabiner.json
     - mise: ~/.mise
