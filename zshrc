@@ -63,6 +63,11 @@ for PKG in ctags drafter emacs git gitflow python rust ruby sml subversion tig t
     pathadd "/opt/$PKG/bin" "fore"
 done
 
+PG_PATH="/Applications/Postgres.app/Contents/Versions/latest/bin"
+if [ -e $PG_PATH ]; then
+    pathadd "$PG_PATH"
+fi
+
 if [ -e /opt/go ]; then
     export GOROOT=/opt/go
     if [ -e $HOME/proj/go ]; then
