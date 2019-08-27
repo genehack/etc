@@ -24,6 +24,9 @@ if [ $OS_TYPE = 'darwin' -o $OS_TYPE = 'freebsd' ]; then
     export HOSTNAME=`/bin/hostname -s`
     export DOMAIN=`/bin/hostname | cut -f2- -d.`
     export FULL_HOSTNAME=`/bin/hostname`
+
+    # fuck fuck fuck /usr/libexec/path_helper
+    PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 else
     export HOSTNAME=`hostname`
     export DOMAIN=`hostname -d`
