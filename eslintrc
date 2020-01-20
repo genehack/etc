@@ -1,8 +1,12 @@
 {
+  "parserOptions" : {
+    "ecmaVersion": 6,
     "ecmaFeatures": {
-        "blockBindings": true,
-    },
-    "env": {
-        "node": true,
+      "blockBindings": true
     }
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  }
 }
