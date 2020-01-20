@@ -13,6 +13,7 @@ create:
     - dircolors.ansi-dark: ~/.dircolors
     - dzil/config.ini: ~/.dzil/config.ini
     - dzil/profiles: ~/.dzil/profiles
+    - editorconfig: ~/.editorconfig
     - eslintrc: ~/.eslintrc
     - mise: ~/.mise
     - perlcriticrc: ~/.perlcriticrc
