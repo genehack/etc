@@ -81,6 +81,7 @@ if [ -e /opt/go ]; then
 fi
 
 export NVM_DIR="/opt/nvm"
+[[ -f "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 
 if [ -e /opt/play ]; then
     pathadd "/opt/play" "fore"
