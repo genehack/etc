@@ -6,7 +6,8 @@ ZSH=$HOME/proj/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="genehack"
+#ZSH_THEME="genehack"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_AUTO_TITLE="true"
 plugins=(cpanm npm nvm ssh-agent zsh-syntax-highlighting)
@@ -214,3 +215,63 @@ if [ -e /usr/local/opt/fzf ]; then
     # Key bindings
     source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 fi
+
+function svn_dir {
+    [ -d ".svn" ] || return 1
+
+    autostash alias commit="svn commit"
+    autostash alias d="svn diff"
+    autostash alias pull="svn up"
+    autostash alias push="svn ci"
+    autostash alias revert="svn revert"
+
+    base_dir="."
+    while [ -d "$base_dir/../.svn" ]; do base_dir="$base_dir/.."; done
+    base_dir=`cd $base_dir; pwd`
+
+    vcs=svn
+}
+
+function git_dir {
+    base_dir=$(git rev-parse --show-cdup 2>/dev/null) || return 1
+
+    if [ -n "$base_dir" ]; then
+	base_dir=`cd $base_dir; pwd`
+    else
+	base_dir=$PWD
+    fi
+
+    autostash alias cleanup="git fsck && git gc"
+    autostash alias commit="git commit -s"
+    autostash alias d="git diff"
+    autostash alias di="D=$(which icdiff) ; if [ $? = 0 ]; then git icdiff; else git diff; fi"
+    autostash alias dc="d --cached"
+    autostash alias l="git log"
+    autostash alias lg="git lg"
+    autostash alias lgp="git lg -p"
+    autostash alias lp="l -p"
+    autostash alias lss="l --stat --summary"
+    autostash alias newbranch="git checkout -b"
+    autostash alias pull="git pull"
+    autostash alias push="git push \$@ && git push --tags"
+    autostash alias revert="git checkout"
+
+    vcs=git
+}
+
+function precmd {
+    local vcs base_dir
+
+    git_dir || svn_dir
+
+    if [ -n "$vcs" ]; then
+        autostash alias st="$vcs status"
+        autostash alias up="pull"
+        autostash alias cdb="cd $base_dir"
+    fi
+
+}
+
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -16,6 +16,7 @@ create:
     - editorconfig: ~/.editorconfig
     - eslintrc: ~/.eslintrc
     - mise: ~/.mise
+    - p10k.zsh: ~/.p10k.zsh
     - perlcriticrc: ~/.perlcriticrc
     - perltidyrc: ~/.perltidyrc
     - smartcd_config: ~/.smartcd_config
